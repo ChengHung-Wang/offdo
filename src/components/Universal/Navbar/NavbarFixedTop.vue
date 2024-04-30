@@ -2,7 +2,7 @@
   <nav class="navbar fixed-top navbar-expand-lg bg-secondary-color">
     <div class="container">
       <a class="navbar-brand" href="#">
-        <img src="@/assets/images/logo.svg" class="my-2" alt="Bootstrap" height="50">
+        <img src="@/assets/images/logo.svg" class="my-1" alt="Bootstrap" height="40">
       </a>
       <NavbarCollapses :idName="idName" />
 
@@ -22,11 +22,11 @@
 <style scoped lang="scss">
 .collapse {
   transform: scaleY(0.9);
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 600;
 }
 .start-use {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 600;
 }
 </style>

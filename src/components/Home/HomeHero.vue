@@ -41,7 +41,7 @@
         margin-bottom: 12px;
       }
       p {
-        font-size: 30px;
+        font-size: 25px;
         transform: scaleY(0.85);
       }
     }

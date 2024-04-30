@@ -6,7 +6,7 @@
 
 <style scoped lang="scss">
 .nav-link {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 600;
 }
 </style>
