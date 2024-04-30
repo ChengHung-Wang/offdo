@@ -1,11 +1,14 @@
 <template>
   <li class="nav-item">
-    <a class="nav-link active mx-2" aria-current="page" href="#">{{ props.text }}</a>
+    <a class="nav-link active mx-4" aria-current="page" href="#">{{ props.text }}</a>
   </li>
 </template>
 
 <style scoped lang="scss">
-
+.nav-link {
+  font-size: 18px;
+  font-weight: 600;
+}
 </style>
 
 <script lang="ts" setup>

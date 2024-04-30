@@ -2,7 +2,7 @@
   <nav class="navbar fixed-top navbar-expand-lg bg-secondary-color">
     <div class="container">
       <a class="navbar-brand" href="#">
-        <img src="@/assets/images/logo.svg" alt="Bootstrap" height="60">
+        <img src="@/assets/images/logo.svg" class="my-2" alt="Bootstrap" height="50">
       </a>
       <NavbarCollapses :idName="idName" />
 
@@ -11,8 +11,8 @@
           <NavbarItem text="概要" />
           <NavbarItem text="服務費用計算機" />
         </ul>
-        <div class="d-flex justify-content-center" role="search">
-          <el-button type="primary" round>開始使用</el-button>
+        <div class="d-flex justify-content-center ms-4" role="search">
+          <el-button class="start-use" type="primary" round size="large"><strong>開始使用</strong></el-button>
         </div>
       </div>
     </div>
@@ -20,7 +20,15 @@
 </template>
 
 <style scoped lang="scss">
-
+.collapse {
+  transform: scaleY(0.9);
+  font-size: 18px;
+  font-weight: 600;
+}
+.start-use {
+  font-size: 18px;
+  font-weight: 600;
+}
 </style>
 
 <script lang="ts" setup>

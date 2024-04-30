@@ -8,7 +8,7 @@
             <p>不想辦平凡傳統的那種葬禮？</p>
             <p>想要在告別式展現自己的個人<mark>風格</mark>？</p>
             <p>想在最後<mark>瘋</mark>一次？</p>
-            <p><mark style="color: var(--secondary-color)">亡者計劃</mark>在你離開後，實現你<mark>大膽的夢想</mark>!</p>
+            <p><mark style="color: var(--secondary-color)">亡者計劃</mark>在你離開後，實現你<mark>大膽的夢想</mark> !</p>
           </div>
         </div>
       </div>
@@ -41,8 +41,8 @@
         margin-bottom: 12px;
       }
       p {
-        font-size: 25px;
-        transform: scaleY(0.9);
+        font-size: 30px;
+        transform: scaleY(0.85);
       }
     }
     .description::before, .description::after {
