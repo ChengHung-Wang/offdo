@@ -1,0 +1,17 @@
+:root {
+    --primary-color: #9600FF;
+    --secondary-color: #E0FF00;
+}
+
+.bg-primary-color {
+    background-color: var(--primary-color);
+}
+
+.bg-secondary-color {
+    background-color: var(--secondary-color);
+}
+
+.full-screen {
+    width: 100vw;
+    height: 100vh;
+}
