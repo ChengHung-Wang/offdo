@@ -35,7 +35,7 @@ import Navbar from "@/components/Universal/Navbar/NavbarFixedTop.vue";
 import { vLoading } from "element-plus";
 import { ref } from "vue";
 
-const loading = ref(true);
+const loading = ref(false);
 
 setTimeout(() => {
   loading.value = false;
