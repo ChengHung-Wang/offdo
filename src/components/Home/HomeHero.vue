@@ -22,7 +22,7 @@
     background-image: url("@/assets/images/hero-primary-pic.svg");
     background-repeat: no-repeat;
     background-size: contain;
-    background-position: 2.5vw 70px;
+    background-position: 2.5vw 45px;
     display: flex;
     align-content: center;
     mark {
