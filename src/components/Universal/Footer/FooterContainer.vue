@@ -68,12 +68,14 @@ import FooterItem from "@/components/Universal/Footer/FooterItem.vue";
       transform-origin: left;
     }
     .footer-item {
-      margin: 0 auto;
+      margin-top: 0;
+      margin-bottom: 7px;
       text-decoration: none;
       color: var(--secondary-color);
       display: block;
       text-align: left;
-      font-weight: 600;
+      font-weight: 400;
+      font-size: 18px;
     }
     .logo {
       filter: invert(1);

@@ -1,6 +1,6 @@
 <template>
   <nav class="navbar fixed-top navbar-expand-lg bg-secondary-color">
-    <div class="container">
+    <div class="container-fluid">
       <a class="navbar-brand" href="#">
         <img src="@/assets/images/logo.svg" class="my-1" alt="Bootstrap" height="40">
       </a>
@@ -20,6 +20,9 @@
 </template>
 
 <style scoped lang="scss">
+nav {
+  padding: 0 64px;
+}
 .collapse {
   transform: scaleY(0.9);
   font-size: 16px;

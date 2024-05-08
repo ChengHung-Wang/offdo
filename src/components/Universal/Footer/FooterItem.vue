@@ -7,7 +7,7 @@ const props = defineProps({
 </script>
 
 <template>
-  <router-link class="footer-item text-regular" to="">{{ props.text }}</router-link>
+  <router-link class="footer-item" to="">{{ props.text }}</router-link>
 </template>
 
 <style scoped lang="scss">

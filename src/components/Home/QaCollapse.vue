@@ -1,5 +1,7 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
+import { InfoFilled } from "@element-plus/icons-vue";
+import SectionTitle from "@/components/Universal/Title/SectionTitle.vue";
 
 const activeName = ref('1')
 </script>
@@ -7,16 +9,17 @@ const activeName = ref('1')
 <template>
   <section id="qa">
     <div class="container">
-      <div class="row">
-        <div class="col-12 d-flex justify-content-center flex-wrap">
-          <h2 class="title w-100">常見問題</h2>
-          <p class="description">想要開始計劃，但還有許多疑問嗎？</p>
-        </div>
-      </div>
+      <SectionTitle title="常見問題" subtitle="想要開始計畫，但還有許多疑問嗎？" />
       <div class="row">
         <div class="col-12">
           <el-collapse v-model="activeName" accordion>
-            <el-collapse-item title="Consistency" name="1">
+            <el-collapse-item name="1">
+              <template #title>
+                <img class="collapse-header" src="@/assets/images/qa/q1.svg" alt="">
+                <span class="collapse-header-description">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius, natus.
+                </span>
+              </template>
               <div>
                 Consistent with real life: in line with the process and logic of real
                 life, and comply with languages and habits that the users are used to;
@@ -26,38 +29,32 @@ const activeName = ref('1')
                 as: design style, icons and texts, position of elements, etc.
               </div>
             </el-collapse-item>
-            <el-collapse-item title="Feedback" name="2">
+            <el-collapse-item name="2">
+              <template #title>
+                <img class="collapse-header" src="@/assets/images/qa/q2.svg" alt="">
+                <span class="collapse-header-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius, natus.</span>
+              </template>
               <div>
-                Operation feedback: enable the users to clearly perceive their
-                operations by style updates and interactive effects;
+                Consistent with real life: in line with the process and logic of real
+                life, and comply with languages and habits that the users are used to;
               </div>
               <div>
-                Visual feedback: reflect current state by updating or rearranging
-                elements of the page.
-              </div>
-            </el-collapse-item>
-            <el-collapse-item title="Efficiency" name="3">
-              <div>
-                Simplify the process: keep operating process simple and intuitive;
-              </div>
-              <div>
-                Definite and clear: enunciate your intentions clearly so that the
-                users can quickly understand and make decisions;
-              </div>
-              <div>
-                Easy to identify: the interface should be straightforward, which helps
-                the users to identify and frees them from memorizing and recalling.
+                Consistent within interface: all elements should be consistent, such
+                as: design style, icons and texts, position of elements, etc.
               </div>
             </el-collapse-item>
-            <el-collapse-item title="Controllability" name="4">
+            <el-collapse-item name="3">
+              <template #title>
+                <img class="collapse-header" src="@/assets/images/qa/q3.svg" alt="">
+                <span class="collapse-header-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius, natus.</span>
+              </template>
               <div>
-                Decision making: giving advices about operations is acceptable, but do
-                not make decisions for the users;
+                Consistent with real life: in line with the process and logic of real
+                life, and comply with languages and habits that the users are used to;
               </div>
               <div>
-                Controlled consequences: users should be granted the freedom to
-                operate, including canceling, aborting or terminating current
-                operation.
+                Consistent within interface: all elements should be consistent, such
+                as: design style, icons and texts, position of elements, etc.
               </div>
             </el-collapse-item>
           </el-collapse>
@@ -69,13 +66,47 @@ const activeName = ref('1')
 
 <style scoped lang="scss">
   #qa {
+    // override
+    .el-collapse {
+      --el-collapse-header-bg-color: black;
+      --el-collapse-header-text-color: white;
+      --el-collapse-content-bg-color: var(--primary-color);
+      --el-collapse-content-font-size: 18px;
+      --el-collapse-header-font-size: 18px;
+      --el-collapse-content-text-color: white;
+      --el-collapse-border-color: var(--secondary-color);
+      border-top: 0;
+      text-align: left;
+    }
+
+    .el-collapse-item__header {
+      padding-top: 30px;
+      padding-bottom: 30px;
+    }
+
     background-color: black;
     padding: 60px 0;
     .title {
       transform: scaleX(125%);
-      transform-origin: left;
       color: white;
-      width: 75%;
+    }
+    .collapse-header {
+      color: var(--secondary-color);
+      font-size: 48px;
+      font-weight: bold;
+      margin: 30px 10px 30px 0;
+    }
+    .collapse-header-description {
+      font-weight: 400;
     }
   }
+</style>
+<style>
+.el-collapse-item> button {
+  padding-bottom: 40px;
+  padding-top: 40px;
+}
+.el-collapse-item__content {
+  padding: 25px;
+}
 </style>
