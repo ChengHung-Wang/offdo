@@ -12,10 +12,13 @@ import "bootstrap"
 
 // ElementPlus Override library default setting
 import "./assets/style/scss/element-plus-override.scss";
+import { createPinia } from "pinia";
 
+const pinia = createPinia();
 const app = createApp(App);
 
-app.use(store);
+// app.use(store);
+app.use(pinia);
 app.use(router);
 app.use(ElementPlus);
 
