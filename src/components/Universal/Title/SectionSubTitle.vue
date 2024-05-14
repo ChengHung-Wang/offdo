@@ -7,15 +7,16 @@ const props = defineProps({
 
 <template>
   <div class="col-12">
-    <p class="description text-white">{{ props.text }}</p>
+    <p class="subtitle text-white">{{ props.text }}</p>
   </div>
 </template>
 
 <style scoped lang="scss">
-.description {
+.subtitle {
   color: white;
   margin-top: 40px;
   font-weight: bold;
   margin-bottom: 0;
+  text-align: center;
 }
 </style>

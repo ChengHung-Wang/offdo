@@ -14,7 +14,7 @@ const props = defineProps({
     <div class="col-12 title-container d-flex justify-content-center flex-wrap">
       <h2 class="title m-0">{{ props.title }}</h2>
     </div>
-    <SectionSubTitle :text="props.subtitle" />
+    <SectionSubTitle :text="props.subtitle" v-if="props.subtitle" />
   </div>
 </template>
 
