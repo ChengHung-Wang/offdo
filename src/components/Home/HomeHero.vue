@@ -24,6 +24,7 @@
     background-size: contain;
     background-position: 2.5vw 45px;
     display: flex;
+    text-align: center;
     align-content: center;
     mark {
       background-color: var(--primary-color);
