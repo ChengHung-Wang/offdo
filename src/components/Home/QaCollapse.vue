@@ -1,7 +1,8 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
-import { InfoFilled } from "@element-plus/icons-vue";
+import { ElCollapse, ElCollapseItem } from 'element-plus'
 import SectionTitle from "@/components/Universal/Title/SectionTitle.vue";
+import { useHomePageData } from "@/store/home-page-data";
 
 const activeName = ref('1')
 </script>
@@ -13,48 +14,15 @@ const activeName = ref('1')
       <div class="row">
         <div class="col-12">
           <el-collapse v-model="activeName" accordion>
-            <el-collapse-item name="1">
+            <el-collapse-item v-for="(data, index) in (useHomePageData()).qa" :key="index" :name="index">
               <template #title>
-                <img class="collapse-header" src="@/assets/images/qa/q1.svg" alt="">
+                <img class="collapse-header" :src="data.icon" alt="">
                 <span class="collapse-header-description">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius, natus.
+                  {{ data.title }}
                 </span>
               </template>
               <div>
-                Consistent with real life: in line with the process and logic of real
-                life, and comply with languages and habits that the users are used to;
-              </div>
-              <div>
-                Consistent within interface: all elements should be consistent, such
-                as: design style, icons and texts, position of elements, etc.
-              </div>
-            </el-collapse-item>
-            <el-collapse-item name="2">
-              <template #title>
-                <img class="collapse-header" src="@/assets/images/qa/q2.svg" alt="">
-                <span class="collapse-header-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius, natus.</span>
-              </template>
-              <div>
-                Consistent with real life: in line with the process and logic of real
-                life, and comply with languages and habits that the users are used to;
-              </div>
-              <div>
-                Consistent within interface: all elements should be consistent, such
-                as: design style, icons and texts, position of elements, etc.
-              </div>
-            </el-collapse-item>
-            <el-collapse-item name="3">
-              <template #title>
-                <img class="collapse-header" src="@/assets/images/qa/q3.svg" alt="">
-                <span class="collapse-header-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius, natus.</span>
-              </template>
-              <div>
-                Consistent with real life: in line with the process and logic of real
-                life, and comply with languages and habits that the users are used to;
-              </div>
-              <div>
-                Consistent within interface: all elements should be consistent, such
-                as: design style, icons and texts, position of elements, etc.
+                {{ data.description }}
               </div>
             </el-collapse-item>
           </el-collapse>
