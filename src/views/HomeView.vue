@@ -1,9 +1,11 @@
 <template>
   <div id="home">
     <HomeHero />
-<!--    <img alt="Vue logo" src="../assets/logo.png">-->
-<!--    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>-->
+    <StepsSection />
+    <CaseShareSection />
+    <PlanContainer />
     <QaCollapse />
+    <CounterContainer />
     <Footer />
   </div>
 </template>
@@ -14,9 +16,17 @@ import HelloWorld from '@/components/HelloWorld.vue';
 import HomeHero from "@/components/Home/HomeHero.vue";
 import Footer from "@/components/Universal/Footer/FooterContainer.vue";
 import QaCollapse from "@/components/Home/QaCollapse.vue";
+import StepsSection from "@/components/Home/Steps/StepsSection.vue";
+import CounterContainer from "@/components/Home/Counter/CounterContainer.vue";
+import PlanContainer from "@/components/Home/Plan/PlanContainer.vue";
+import CaseShareSection from "@/components/Home/CaseShare/CaseShareSection.vue";
 
 @Options({
   components: {
+    CaseShareSection,
+    PlanContainer,
+    CounterContainer,
+    StepsSection,
     QaCollapse,
     Footer,
     HomeHero,
