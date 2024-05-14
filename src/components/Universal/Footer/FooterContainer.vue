@@ -7,7 +7,7 @@ import FooterItem from "@/components/Universal/Footer/FooterItem.vue";
 <template>
   <footer>
     <div class="container">
-      <div class="row w-100">
+      <div class="row">
         <div class="col-sm-3 mb-4">
           <FooterHeader text="支持服務" />
           <FooterItem text="聯繫客服" />
@@ -26,10 +26,10 @@ import FooterItem from "@/components/Universal/Footer/FooterItem.vue";
           <FooterItem text="成為合作夥伴" />
           <FooterItem text="商業倫理與法規道德" />
         </div>
-        <div class="col-sm-3 mb-4">
+        <div class="col-sm-3 mb-4 flex-wrap">
           <img src="@/assets/images/logo.svg" class="logo"  alt="offdo logo"/>
           <span class="text-white">從以下管道下載 APP，並開始使用服務。</span>
-          <div class="d-flex justify-content-start">
+          <div class="d-flex justify-content-start flex-wrap">
             <img class="download-weight" src="@/assets/images/weight/app_store_download.svg" alt="">
             <img class="download-weight" src="@/assets/images/weight/google_play_download.svg" alt="">
           </div>
@@ -54,11 +54,7 @@ import FooterItem from "@/components/Universal/Footer/FooterItem.vue";
     padding-top: 80px;
     padding-bottom: 70px;
     position: relative;
-    .container {
-      display: flex;
-      flex-wrap: wrap;
-      align-content: space-between;
-    }
+    overflow: hidden;
     .footer-header {
       margin-bottom: 40px;
       text-align: left;
