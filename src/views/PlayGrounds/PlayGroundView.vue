@@ -1,7 +1,7 @@
 <script lang="ts">
 import { Vue } from "vue-class-component";
 
-export default class PlayGroundRoot extends Vue {}
+export default class PlayGroundView extends Vue {}
 </script>
 
 <template>
