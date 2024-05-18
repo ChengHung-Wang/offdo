@@ -2,6 +2,12 @@
 import SectionTitle from "@/components/Universal/Title/SectionTitle.vue";
 import StepsBar from "@/components/Home/Steps/StepsBar.vue";
 import StepCards from "@/components/Home/Steps/StepCards.vue";
+import { useHomePageState } from "@/store/home-page-state";
+import { useHomePageData } from "@/store/home-page-data";
+
+const homePageState = useHomePageState();
+const homePageData = useHomePageData();
+
 </script>
 
 <template>
@@ -10,11 +16,12 @@ import StepCards from "@/components/Home/Steps/StepCards.vue";
       <SectionTitle title="你的計畫如何被實現?" />
       <StepsBar />
     </div>
-    .cont
     <div class="container">
       <div class="row">
-        <div class="col-12 text-white text-regular-sm mb-5">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci aperiam architecto at magni minima nobis pariatur sed. Aut cum cupiditate deleniti distinctio inventore laudantium mollitia ratione sit, tenetur vitae. Eaque?
+        <div class="col-12 text-white text-regular mb-5">
+          <p class="text-white p-0 m-0 text-regular" v-for="(value, key) in homePageData.steps[homePageState.steps.nowIndex]" :key="key">
+            {{ value }}
+          </p>
         </div>
       </div>
     </div>
@@ -26,6 +33,7 @@ import StepCards from "@/components/Home/Steps/StepCards.vue";
   #steps {
     background-color: black;
     margin-top: 67px;
-
+    overflow: hidden;
+    max-width: 100vw;
   }
 </style>

@@ -1,26 +1,28 @@
 <script setup lang="ts">
+import { useHomePageState } from "@/store/home-page-state";
 
+const homePageState = useHomePageState();
 </script>
 
 <template>
   <div class="row steps-status-bar">
-    <div class="col-12 animation-icon-container">
-      <div class="animation-icon">
-        <div class="icon"></div>
-      </div>
-    </div>
+<!--    <div class="col-12 animation-icon-container">-->
+<!--      <div class="animation-icon">-->
+<!--        <div class="icon"></div>-->
+<!--      </div>-->
+<!--    </div>-->
     <div class="col-12">
       <div class="d-flex">
-        <div class="step-1">
+        <div class="step-1" v-bind:class="{'bg-primary-color': homePageState.steps.nowIndex == 0}">
           <div class="description">前往下載</div>
         </div>
-        <div class="step-2">
+        <div class="step-2" v-bind:class="{'bg-primary-color': homePageState.steps.nowIndex == 1}">
           <div class="description">訂製亡后計畫</div>
         </div>
-        <div class="step-3">
+        <div class="step-3" v-bind:class="{'bg-primary-color': homePageState.steps.nowIndex == 2}">
           <div class="description">專人評估</div>
         </div>
-        <div class="step-4">
+        <div class="step-4" v-bind:class="{'bg-primary-color': homePageState.steps.nowIndex == 3}">
           <div class="description">安心等死</div>
         </div>
       </div>
@@ -31,7 +33,7 @@
 <style scoped lang="scss">
 .steps-status-bar {
   margin-top: 120px;
-  margin-bottom: 120px;
+  margin-bottom: 160px;
   position: relative;
   .animation-icon-container {
     height: 91px;
@@ -56,12 +58,13 @@
 
 [class^="step-"] {
   height: 10px;
-  background: white;
+  background-color: white;
   margin-right: 12px;
   min-width: calc(18% - 12px);
   display: flex;
   justify-content: center;
   font-size: 20px;
+  transition: ease-in-out .15s;
   .description {
     color: white;
     font-weight: bold;

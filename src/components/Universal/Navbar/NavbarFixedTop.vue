@@ -20,8 +20,10 @@
 </template>
 
 <style scoped lang="scss">
-nav {
-  padding: 0 64px;
+@media (min-width: 576px) {
+  nav {
+    padding: 0 64px;
+  }
 }
 .collapse {
   transform: scaleY(0.9);

@@ -2,11 +2,13 @@
   <div id="home">
     <HomeHero />
     <StepsSection />
+    <FeatureSection />
     <CaseShareSection />
     <PlanContainer />
     <QaCollapse />
     <CounterContainer />
     <Footer />
+<!--    <MemeForTeamMember />-->
   </div>
 </template>
 
@@ -20,9 +22,13 @@ import StepsSection from "@/components/Home/Steps/StepsSection.vue";
 import CounterContainer from "@/components/Home/Counter/CounterContainer.vue";
 import PlanContainer from "@/components/Home/Plan/PlanContainer.vue";
 import CaseShareSection from "@/components/Home/CaseShare/CaseShareSection.vue";
+import MemeForTeamMember from "@/components/Home/MemeForTeamMember.vue";
+import FeatureSection from "@/components/Home/Features/FeatureSection.vue";
 
 @Options({
   components: {
+    FeatureSection,
+    MemeForTeamMember,
     CaseShareSection,
     PlanContainer,
     CounterContainer,

@@ -449,9 +449,9 @@ onMounted(() => {
                        v-bind:class="{'avatar-border-primary': index % 2 == 1}"
                   ></div>
                   <div class="right">
-                    <div class="name text-white">{{ data.avatar.name }}</div>
-                    <div class="message-box">
-                      <div class="message-inner">{{ data.message }}</div>
+                    <div class="name"  v-bind:class="{'text-white': index % 2 == 0}">{{ data.avatar.name }}</div>
+                    <div class="message-box" v-bind:class="{'bg-primary-color': index % 2 == 1, 'bg-secondary-color': index % 2 == 0}">
+                      <div class="message-inner" v-bind:class="{'text-white': index % 2 == 1}">{{ data.message }}</div>
                     </div>
                   </div>
                 </div>
@@ -474,6 +474,7 @@ onMounted(() => {
       padding: 22px;
       width: 100%;
       height: 100%;
+
       .img-container {
         height: 100%;
         background-position: center;
@@ -484,6 +485,8 @@ onMounted(() => {
         margin-top: 9px;
       }
       .message {
+        display: flex;
+        flex-wrap: wrap;
         .avatar {
           background-position: center;
           background-repeat: no-repeat;
@@ -495,6 +498,49 @@ onMounted(() => {
         }
         .avatar-border-primary {
           border-color: var(--primary-color);
+        }
+        .right {
+          width: calc(100% - 200px);
+          margin-top: 15px;
+          margin-left: 22px;
+          .name {
+            margin-bottom: 13px;
+          }
+          .message-box {
+            position: relative;
+            padding: 22px;
+          }
+          .message-inner {
+            text-align: justify;
+          }
+          .message-box::after {
+            content: '2024';
+            position: absolute;
+            bottom: -7px;
+            right: -60px;
+          }
+          .bg-secondary-color.message-box::after {
+            color: white;
+          }
+          .bg-primary-color.message-box::after {
+            color: black;
+          }
+          .message-box::before {
+            content: '';
+            position: absolute;
+            display: inline-block;
+            top: -.5px;
+            left: -19px;
+            width: 0;
+            height: 0;
+            border: 10px solid transparent;
+          }
+          .bg-secondary-color.message-box::before {
+            border-right-color: var(--secondary-color);
+          }
+          .bg-primary-color.message-box::before {
+            border-right-color: var(--primary-color);
+          }
         }
       }
     }

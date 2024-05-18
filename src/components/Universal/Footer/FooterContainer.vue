@@ -41,7 +41,11 @@ import FooterItem from "@/components/Universal/Footer/FooterItem.vue";
           <router-link to="" class="bottom-item">隱私權政策</router-link>
           <router-link to="" class="bottom-item">安全性</router-link>
           <router-link to="" class="bottom-item">網站地圖</router-link>
+
         </div>
+       <div class="w-100 text-white" style="font-size: 10px; margin-top: 16px;">
+         老師說要加的 CopyRight 拜託我的組員幫我想想要怎麼放才好
+       </div>
       </div>
     </div>
   </footer>

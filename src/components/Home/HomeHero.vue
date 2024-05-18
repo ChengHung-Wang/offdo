@@ -1,5 +1,5 @@
 <template>
-  <div id="hero" class="full-screen">
+  <div id="hero">
     <div class="container vh-100">
       <div class="row">
         <div class="col-12 description">
@@ -26,6 +26,7 @@
     display: flex;
     text-align: center;
     align-content: center;
+    overflow: hidden;
     mark {
       background-color: var(--primary-color);
       color: white;

@@ -10,9 +10,11 @@
         <div class="col-sm-3 h-100">
           <CounterAnimation />
         </div>
-        <div class="col-sm-2"></div>
+        <div class="col-sm-2">
+          <img src="@/assets/images/star-left.svg" alt="">
+        </div>
         <CounterNumber title="合作廠商數" :target="88" class="text-secondary-color col-sm-3 mt-5" />
-        <CounterNumber title="迄今完成委託數" :target="174" class="text-primary-color col-sm-3 mt-3" />
+        <CounterNumber title="迄今完成委託數" :target="174" class="text-primary-color star-right col-sm-3 mt-3" />
       </div>
     </div>
   </section>
@@ -32,6 +34,20 @@
         display: flex;
         align-items: end;
       }
+    }
+    .star-right {
+      position: relative;
+      padding-top: 90px;
+    }
+    .star-right::after {
+      content: '';
+      position: absolute;
+      background-image: url("@/assets/images/star-right.svg");
+      width: calc(100% + 40px);
+      height: 100%;
+      background-repeat: no-repeat;
+      background-position: right top;
+      inset: 0;
     }
 
   }

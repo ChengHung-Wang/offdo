@@ -9,7 +9,7 @@ const activeName = ref('1')
 
 <template>
   <section id="qa">
-    <div class="container">
+    <div class="container mt-5">
       <SectionTitle title="常見問題" subtitle="想要開始計畫，但還有許多疑問嗎？" />
       <div class="row">
         <div class="col-12">

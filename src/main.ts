@@ -4,7 +4,6 @@ import ElementPlus from 'element-plus'
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 import './registerServiceWorker'
 import router from './router'
-import store from './store'
 
 // Bootstrap v5
 import "bootstrap/dist/css/bootstrap.min.css"
