@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { defineProps } from 'vue';
-import { Plan } from '@/interface/Plan'
+import * as Plan from '@/interface/Plan'
 const props = defineProps({
   data: Plan
 })

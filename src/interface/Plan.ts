@@ -7,4 +7,4 @@ interface Plan {
 
 type Plans = Array<Plan>
 
-export {Plan, Plans}
+export { Plan, Plans }
