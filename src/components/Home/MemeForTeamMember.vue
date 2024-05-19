@@ -35,6 +35,9 @@
   #meme {
     overflow: hidden;
   }
+  img {
+    object-fit: contain;
+  }
   .col-sm-4 {
     position: relative;
   }
