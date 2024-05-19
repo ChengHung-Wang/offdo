@@ -5,32 +5,23 @@ const typingTargetDOM = ref(null);
 onMounted(() => {
   let typewriter = new Typewriter(typingTargetDOM.value, {
     loop: false,
-    delay: 75,
   });
 
-  typewriter
-      .pauseFor(2500)
-      .typeString('A simple yet powerful native javascript')
-      .pauseFor(300)
-      .deleteChars(10)
-      .typeString('<strong>JS</strong> plugin for a cool typewriter effect and ')
-      .typeString('<strong>only <span style="color: #27ae60;">5kb</span> Gzipped!</strong>')
-      .pauseFor(1000)
-      .start();
-  setTimeout(() => {
-    typewriter.typeString('A simple yet powerful native javascript');
-  }, 5000);
+  typewriter.typeString('A simple yet powerful native javascript').start();
 });
 </script>
 
 <template>
  <section id="let-me-show-you">
-   <div ref="typingTargetDOM" id="text" class="text-white">
-
-   </div>
+   <div ref="typingTargetDOM" id="text" class="text-white text-zip-center text-bold-large mt-5"></div>
  </section>
 </template>
 
 <style scoped lang="scss">
-
+#let-me-show-you {
+  background-color: #333333;
+  min-height: 100vh;
+  max-width: 100vw;
+  overflow: hidden;
+}
 </style>

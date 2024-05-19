@@ -23,14 +23,14 @@ function toolTipToggle() {
     toolTipStatus.value.show = false;
     setTimeout(() => {
       toolTipStatus.value.fadeIn = false;
-    }, 350)
+    }, 420)
   }else {
     // open
     toolTipStatus.value.open = true;
     toolTipStatus.value.fadeIn = true;
     setTimeout(() => {
       toolTipStatus.value.show = true;
-    }, 350)
+    }, 420)
   }
 }
 
@@ -61,7 +61,7 @@ watch(() => props.open, async (newVal) => {
   max-width: calc(100vw - 24px);
   height: 140px;
   background-color: var(--secondary-color);
-  transition: .25s ease-in-out;
+  transition: .35s cubic-bezier(.79,.27,.56,1.2);
   z-index: 999;
 
   .title {
@@ -70,11 +70,11 @@ watch(() => props.open, async (newVal) => {
     height: 45px;
     width: 10px;
     top: -22.5px;
-    transition: .25s ease-in-out;
     overflow: hidden;
 
     span {
       color: var(--primary-color);
+      transition: .25s ease-in-out;
       font-size: 18px;
       font-weight: bold;
       line-height: 45px;
@@ -97,6 +97,7 @@ watch(() => props.open, async (newVal) => {
       line-height: 36px;
       text-align: center;
       transition: .25s ease-in-out;
+
       user-select: none;
       color: var(--secondary-color);
     }
@@ -113,6 +114,7 @@ watch(() => props.open, async (newVal) => {
     span {
       user-select: text !important;
       color: white !important;
+      transition-delay: .3s;
     }
   }
 
@@ -120,6 +122,7 @@ watch(() => props.open, async (newVal) => {
     span {
       user-select: text !important;
       color: var(--el-text-color-primary) !important;
+      transition-delay: .3s;
     }
   }
 }
