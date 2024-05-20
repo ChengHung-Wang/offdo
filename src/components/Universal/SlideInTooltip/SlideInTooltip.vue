@@ -128,6 +128,6 @@ watch(() => props.open, async (newVal) => {
 }
 
 .tooltip-fade-in {
-  bottom: 80px;
+  bottom: 50px;
 }
 </style>
