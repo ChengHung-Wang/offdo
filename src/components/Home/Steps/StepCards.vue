@@ -41,9 +41,8 @@ const homePageState = useHomePageState();
             <el-carousel-item>
               <div class="container h-100" id="step2">
                 <div class="row h-100">
-                  <div class="col-sm-1"></div>
-                  <div class="col-sm-7 img-content">
-                    <img src="@/assets/images/steps/step2-todo.svg" alt="">
+                  <div class="col-sm-12 img-content">
+                    <img src="@/assets/images/steps/step2-human.svg" class="w-100" alt="">
                   </div>
                 </div>
               </div>
@@ -82,7 +81,7 @@ const homePageState = useHomePageState();
   width: 100%;
   display: flex;
   justify-content: start;
-  padding-bottom: 140px;
+  padding-bottom: 200px;
 
   .step-card {
     background-color: var(--secondary-color);
@@ -120,15 +119,37 @@ const homePageState = useHomePageState();
     width: 100%;
     position: relative!important;
   }
+  .left::after, .left::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+  .left::before {
+    background-color: black;
+    top: 56.5%;
+    bottom: -15%;
+    z-index: 1;
+    left: -50%;
+    transform: rotate(20deg);
+    transform-origin: 10% bottom;
+  }
+  .left::after {
+    content: "";
+    z-index: 2;
+    inset: 0;
+    height: 140%;
+    left: 12%;
+    width: 140%;
+    top: -20%;
+    background-image: url("@/assets/images/steps/step1-phone.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+
   .left {
     transform: rotate(-20deg);
     transform-origin: 90% bottom;
-  }
-  .left::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    //background-color: white;
   }
   .download-button-container {
     display: flex;
@@ -146,13 +167,33 @@ const homePageState = useHomePageState();
     }
   }
 }
-#step1::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: white;
-  top: 100%;
-  z-index: 9999999999;
+
+#step2 {
+  .row {
+    display: flex;
+    align-content: end;
+  }
+  .img-content {
+    display: flex;
+    position: relative;
+    align-items: end;
+    height: fit-content;
+    img {
+      position: relative;
+    }
+  }
+  .img-content::after {
+    content: "";
+    background-image: url(http://localhost:8080/img/step2-paper.5bfdfaa9.svg);
+    position: absolute;
+    width: calc(100% - 24px);
+    height: calc(100% + 33%);
+    background-position: left top;
+    background-repeat: no-repeat;
+    z-index: 2;
+    bottom: -33%;
+    background-size: contain;
+  }
 }
 
 #step4, #step3 {
