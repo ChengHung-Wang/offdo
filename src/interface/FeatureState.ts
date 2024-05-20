@@ -1,4 +1,4 @@
-export default interface FeatureState {
+interface FeatureState {
     dom: null | HTMLElement;
     title: string;
     tooltip: {
@@ -13,3 +13,13 @@ export default interface FeatureState {
     scrollPercentage: number;
     callback: null | (() => void);
 }
+
+interface ServiceFeatures {
+    human?: FeatureState,
+    clothing?: FeatureState,
+    location?: FeatureState,
+    method?: FeatureState,
+    more?: FeatureState
+}
+
+export { FeatureState, ServiceFeatures }

@@ -1,57 +1,38 @@
 import { defineStore } from "pinia";
 import { ref } from "vue";
-import type FeatureState from "@/interface/FeatureState";
+import type { FeatureState, ServiceFeatures } from "@/interface/FeatureState";
 
 export const useHomePageState = defineStore('homePageState', {
     state: () => {
         return {
-            steps: ref({
+            steps: {
                 nowIndex: <number>0,
                 nextButtonPressed: <boolean>false
-            }),
-            homeView: ref({
+            },
+            homeView: {
                 dom: <null | HTMLElement>null,
-            }),
-            tooltipToggleBound: ref({
+            },
+            tooltipToggleBound: {
                 open: <number>50,
                 close: <number>120
-            }),
-            typewriterEffectConfig: ref({
+            },
+            typewriterEffectConfig: {
                 typing: <number>50,
                 delete: <number>100,
                 step: <number>3
-            }),
-            feature: ref<{ [key: string]: FeatureState }>({})
+            },
+            feature: <ServiceFeatures>{}
         }
     },
-    getters: {
-        featureItemConstructor: (): FeatureState => {
-            return {
-                dom: null,
-                title: "",
-                tooltip: {
-                    title: "",
-                    message: ""
-                },
-                enter: false,
-                position: {
-                    x: 0,
-                    y: 0
-                },
-                scrollPercentage: 0,
-                callback: null
-            }
-        }
-    },
+    getters: {},
     actions: {
         updateNowIndex(index: number) {
             this.steps.nowIndex = index;
         },
         onScroll: async function () {
-            Object.entries(this.$state.feature).some(async (value) => {
+            for (const value of Object.entries(this.feature)) {
                 try {
-                    const thisFeature = <FeatureState>value[1];
-                    console.log('scroll');
+                    const thisFeature = value[1] as FeatureState;
                     if (thisFeature.enter) {
                         thisFeature.scrollPercentage = this.scrollPercentage(<HTMLElement>thisFeature.dom)
                         thisFeature.position.x = <number>thisFeature.dom?.getBoundingClientRect().x;
@@ -59,15 +40,36 @@ export const useHomePageState = defineStore('homePageState', {
                         if (thisFeature.callback !== null) {
                             thisFeature.callback();
                         }
-                        return true;
                     }
                 } catch (e) {
                     console.log(e);
                 }
-            })
+            }
         },
         scrollPercentage(el: HTMLElement): number {
             return 100 - el.getBoundingClientRect().y / (el.offsetHeight / 100);
+        },
+        featureItemRegister: (
+            dom: HTMLElement | null = null,
+            title= "",
+            tooltipTitle = "",
+            tooltipMessage = "",
+            callback: null | (() => void) = null): FeatureState => {
+            return {
+                dom: dom,
+                title: title,
+                tooltip: {
+                    title: tooltipTitle,
+                    message: tooltipMessage
+                },
+                enter: false,
+                position: {
+                    x: 0,
+                    y: 0
+                },
+                scrollPercentage: 0,
+                callback: callback
+            }
         }
     }
 });

@@ -2,10 +2,13 @@
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import { EffectCoverflow } from 'swiper/modules'
 import 'swiper/css';
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
+import { useHomePageState } from "@/store/home-page-state";
+import { useIntersectionObserver } from "@vueuse/core";
 
+const homePageState = useHomePageState();
+const targetListenerDOM = ref<null | HTMLElement>(null);
 const modules = ref([EffectCoverflow]);
-
 const onSwiper = (swiper) => {
   console.log(swiper);
 };
@@ -13,78 +16,68 @@ const onSlideChange = () => {
   console.log('slide change');
 };
 
+const slideData = [
+  {
+    title: "",
+    message: "",
+    image: require("@/assets/images/feature/clothing/wedding-dress.svg")
+  },
+  {
+    title: "",
+    message: "",
+    image: require("@/assets/images/feature/clothing/clown.svg")
+  },
+  {
+    title: "",
+    message: "",
+    image: require("@/assets/images/feature/clothing/nude.svg")
+  },
+  {
+    title: "",
+    message: "",
+    image: require("@/assets/images/feature/clothing/plastic-bag.svg")
+  },
+  {
+    title: "",
+    message: "",
+    image: require("@/assets/images/feature/clothing/mummy.svg")
+  },
+]
+
+onMounted(() => {
+  homePageState.feature.clothing = homePageState.featureItemRegister(
+      targetListenerDOM, '', '', '', null);
+  useIntersectionObserver(
+      targetListenerDOM,
+      ([{isIntersecting}]) => {
+        homePageState.feature.clothing.enter = isIntersecting;
+      }
+  )
+});
 </script>
 
 <template>
-  <section id="feature-clothing">
-    <!--    loop: true,
-        slidesPerView : 2,
-        centeredSlides : true,
-        effect : 'coverflow',
-        coverflow: {
-                    rotate: 0,
-                    stretch: 0,
-                    depth: 300,
-                    modifier: 1,
-                    // slideShadows : true
-                },-->
+  <section id="feature-clothing" ref="targetListenerDOM">
+    <h1 v-if="homePageState.feature.clothing !== undefined" class="text-white">{{ homePageState.feature.clothing.position.y }}</h1>
     <swiper
         :slides-per-view="3"
-        :space-between="200"
+        :space-between="-200"
         :centered-slides="true"
-        :loop="true"
+        :auto-height="true"
+        slide-class="swiper-slide"
+        :loop="false"
         :modules="modules"
         effect="coverflow"
-        :coverflow-effect="{rotate: 0, stretch: 1, depth: 300, modifier: 0.7, slideShadows: false}"
+        :coverflow-effect="{rotate: 0, stretch: 1, depth: 500, modifier: 0.75, slideShadows: false}"
         class="swiper-container"
         @swiper="onSwiper"
         @slideChange="onSlideChange"
     >
-      <swiper-slide class="swiper-slide c1">
-        <img src="@/assets/images/feature/clothing/wedding-dress.svg" alt="">
-      </swiper-slide>
-      <swiper-slide class="swiper-slide c2">
-        <img src="@/assets/images/feature/clothing/clown.svg" alt="">
-      </swiper-slide>
-      <swiper-slide class="swiper-slide c3">
-        <img src="@/assets/images/feature/clothing/nude.svg" alt="">
-      </swiper-slide>
-      <swiper-slide class="swiper-slide c4">
-        <img src="@/assets/images/feature/clothing/plastic-bag.svg" alt="">
-      </swiper-slide>
-      <swiper-slide class="swiper-slide c5">
-        <img src="@/assets/images/feature/clothing/mummy.svg" alt="">
-      </swiper-slide>
-      <swiper-slide class="swiper-slide c1">
-        <img src="@/assets/images/feature/clothing/wedding-dress.svg" alt="">
-      </swiper-slide>
-      <swiper-slide class="swiper-slide c2">
-        <img src="@/assets/images/feature/clothing/clown.svg" alt="">
-      </swiper-slide>
-      <swiper-slide class="swiper-slide c3">
-        <img src="@/assets/images/feature/clothing/nude.svg" alt="">
-      </swiper-slide>
-      <swiper-slide class="swiper-slide c4">
-        <img src="@/assets/images/feature/clothing/plastic-bag.svg" alt="">
-      </swiper-slide>
-      <swiper-slide class="swiper-slide c5">
-        <img src="@/assets/images/feature/clothing/mummy.svg" alt="">
-      </swiper-slide>
-      <swiper-slide class="swiper-slide c1">
-        <img src="@/assets/images/feature/clothing/wedding-dress.svg" alt="">
-      </swiper-slide>
-      <swiper-slide class="swiper-slide c2">
-        <img src="@/assets/images/feature/clothing/clown.svg" alt="">
-      </swiper-slide>
-      <swiper-slide class="swiper-slide c3">
-        <img src="@/assets/images/feature/clothing/nude.svg" alt="">
-      </swiper-slide>
-      <swiper-slide class="swiper-slide c4">
-        <img src="@/assets/images/feature/clothing/plastic-bag.svg" alt="">
-      </swiper-slide>
-      <swiper-slide class="swiper-slide c5">
-        <img src="@/assets/images/feature/clothing/mummy.svg" alt="">
-      </swiper-slide>
+      <template v-for="key in 10" :key="key">
+        <swiper-slide v-for="(item, key) in slideData" :key="key">
+          <img :src="item.image" alt="">
+        </swiper-slide>
+      </template>
     </swiper>
   </section>
 </template>
@@ -92,29 +85,28 @@ const onSlideChange = () => {
 <style lang="scss">
 #feature-clothing {
   height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
+  width: 100vw;
+  position: relative;
+  z-index: 4;
+  max-width: 100vw;
+  overflow-x: hidden;
 }
 
 .swiper-container {
-  width: 150vw;
-  height: 600px;
+  width: 100vw;
+  height: 650px;
+  overflow: visible;
 }
 
 .swiper-slide {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: end;
-  font-size: 2rem;
-  font-family: monospace;
-  letter-spacing: 0.08rem;
   padding: 12px;
+  width: 600px!important;
+  height: 650px;
   //box-shadow: 0 0 100px 200px rgba(0, 0, 0, .4);
   img {
     user-select: none;
+    width: 600px;
+    height: 650px;
   }
 }
 
