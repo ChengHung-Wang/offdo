@@ -1,66 +1,39 @@
 <script setup lang="ts">
+import { Swiper, SwiperSlide } from 'swiper/vue';
+import { EffectCoverflow } from 'swiper/modules'
+import 'swiper/css';
 import { onMounted, ref } from "vue";
 import { useHomePageState } from "@/store/home-page-state";
 import { useIntersectionObserver } from "@vueuse/core";
-
+import { useHomePageData } from "@/store/home-page-data";
 import SlideInTooltip from "@/components/Universal/SlideInTooltip/SlideInTooltip.vue";
 import Typewriter from 'typewriter-effect/dist/core';
-import type { FeatureState } from "@/interface/FeatureState";
-import { Swiper, SwiperSlide } from "swiper/vue";
-import { EffectCoverflow } from 'swiper/modules'
-import 'swiper/css';
 
-const toolTipOpen = ref<boolean>(false);
+const homePageState = useHomePageState();
 const targetListenerDOM = ref<null | HTMLElement>(null);
 const typingTargetDOM = ref<null | HTMLElement>(null);
-const homePageState = useHomePageState();
-const thisFeature: FeatureState = homePageState.featureItemRegister();
-
-
-// for Swiper
 const modules = ref([EffectCoverflow]);
-const onSwiper = (swiper) => {
-  console.log(swiper);
+const toolTipOpen = ref<boolean>(false);
+const nowActive = ref<number>(2);
+const titleAnimationHasRun = ref<boolean>(false);
+const titleAnimationActionAble = ref<boolean>(true);
+const animationFrameLock = ref<boolean>(false);
+
+const onSlideChange = (e) => {
+  homePageState.featureHuman.location.display = false;
+  nowActive.value = e.activeIndex;
+  setTimeout(() => {
+    locationDisplay();
+    if (slideData[e.activeIndex].image != undefined)
+      homePageState.featureHuman.location.image = slideData[e.activeIndex].image;
+  }, 350)
 };
-const onSlideChange = () => {
-  console.log('slide change');
-};
-const swiperInstance = ref()
-const slideData = [
-  {
-    title: "",
-    message: "",
-    image: require("@/assets/images/feature/location/cliff.png")
-  },
-  {
-    title: "",
-    message: "",
-    image: require("@/assets/images/feature/location/nightclub.png")
-  },
-  {
-    title: "",
-    message: "",
-    image: require("@/assets/images/feature/location/playground.png")
-  },
-  {
-    title: "",
-    message: "",
-    image: require("@/assets/images/feature/location/universe.png")
-  },
-  {
-    title: "",
-    message: "",
-    image: require("@/assets/images/feature/location/waste-dump.png")
-  },
-]
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-let nowTypingIndex = 0;
-let lastTypingProgress = 0
-let isScrollingDown = true; // 初始為向下滾動
+const slideData = (useHomePageData()).features.location;
 
-
-thisFeature.title = "選擇你喜歡的告別式場地"
+function locationDisplay() {
+  homePageState.featureHuman.location.display = homePageState.feature.location?.scrollPercentage >= 120;
+}
 
 function toggleToolTip() {
   const nowProgress: number = homePageState.feature.location.scrollPercentage;
@@ -70,132 +43,133 @@ function toggleToolTip() {
 
 function typingEffect(effect) {
   const nowProgress: number = homePageState.feature.location.scrollPercentage;
-  // if (nowProgress >= homePageState.typewriterEffectConfig.typing &&
-  //     nowProgress <= homePageState.typewriterEffectConfig.delete &&
-  //     Math.abs(nowProgress - lastTypingProgress) >= homePageState.typewriterEffectConfig.step) {
-  //   lastTypingProgress = nowProgress;
-  //   // 向上滾
-  //   if (nowProgress < 0 && nowTypingIndex > 0) {
-  //     nowTypingIndex --;
-  //     effect.deleteChars(1).start();
-  //   }else if (nowProgress)
-  // }
-
-
-
-  // console.log(['nowProgress >= homePageState.typewriterEffectConfig.typing', nowProgress >= homePageState.typewriterEffectConfig.typing],
-  //     ['nowProgress <= homePageState.typewriterEffectConfig.delete', nowProgress <= homePageState.typewriterEffectConfig.delete],
-  //     ['nowProgress - lastTypingProgress >= homePageState.typewriterEffectConfig.step', nowProgress - lastTypingProgress >= homePageState.typewriterEffectConfig.step],
-  //     ['nowTypingIndex < thisFeature.title.length', nowTypingIndex < thisFeature.title.length], nowTypingIndex, thisFeature.title.length);
-  if (nowProgress >= homePageState.typewriterEffectConfig.typing &&
+  if (nowProgress > homePageState.typewriterEffectConfig.typing &&
       nowProgress <= homePageState.typewriterEffectConfig.delete &&
-      Math.abs(nowProgress - lastTypingProgress) >= homePageState.typewriterEffectConfig.step) {
-    if (isScrollingDown && nowTypingIndex < thisFeature.title.length) {
-      // console.log(thisFeature.title[nowTypingIndex]);
-      effect.typeString(thisFeature.title[nowTypingIndex]).start();
-      nowTypingIndex++;
-    } else if (!isScrollingDown && nowTypingIndex > 0) {
-      effect.deleteChars(1).start();
-      nowTypingIndex--;
+      titleAnimationActionAble.value) {
+    if (!titleAnimationHasRun.value) {
+      titleAnimationHasRun.value = true;
+      titleAnimationActionAble.value = false;
+      effect.typeString(homePageState.feature.location.title).callFunction(() => {
+        titleAnimationActionAble.value = true;
+      }).start();
+    } else if (
+        (nowProgress >= homePageState.typewriterEffectConfig.delete || nowProgress <= homePageState.typewriterEffectConfig.typing) &&
+        titleAnimationHasRun.value &&
+        titleAnimationActionAble.value) {
+      titleAnimationActionAble.value = false;
+      effect.deleteAll().callFunction(() => {
+        titleAnimationHasRun.value = false;
+        titleAnimationActionAble.value = true;
+      }).start();
     }
-    lastTypingProgress = nowProgress;
+  } else if (
+      (nowProgress >= homePageState.typewriterEffectConfig.delete || nowProgress <= homePageState.typewriterEffectConfig.typing) &&
+      titleAnimationHasRun.value &&
+      titleAnimationActionAble.value) {
+    titleAnimationActionAble.value = false;
+    effect.deleteAll().callFunction(() => {
+      titleAnimationHasRun.value = false;
+      titleAnimationActionAble.value = true;
+    }).start();
   }
-
-  if (nowProgress >= homePageState.typewriterEffectConfig.delete &&
-      Math.abs(nowProgress - lastTypingProgress) >= homePageState.typewriterEffectConfig.step) {
-    isScrollingDown = false; // 開始向上滾動
-  } else {
-    isScrollingDown = true; // 開始向下滾動
-  }
-
-  // close
 }
 
 onMounted(() => {
-  thisFeature.dom = targetListenerDOM.value;
-  console.log(swiperInstance);
+
   useIntersectionObserver(
       targetListenerDOM,
       ([{isIntersecting}]) => {
         homePageState.feature.location.enter = isIntersecting;
       }
   )
-
   const typewriter = new Typewriter(typingTargetDOM.value, {
     loop: false,
-    delay: 75,
+    delay: homePageState.typewriterEffectConfig.delay,
   });
   // register
-  thisFeature.callback = () => {
-    toggleToolTip();
-    typingEffect(typewriter);
-  };
-
-  homePageState.feature.location = thisFeature;
-});
-
+  homePageState.feature.location = homePageState.featureItemRegister(targetListenerDOM, "選擇你喜歡的告別式場地", () => {
+    if (!animationFrameLock.value) {
+      window.requestAnimationFrame(function() {
+        toggleToolTip();
+        locationDisplay();
+        toggleToolTip();
+        typingEffect(typewriter);
+        animationFrameLock.value = false;
+      });
+      animationFrameLock.value = true;
+    }
+  });
+})
 </script>
 
 <template>
   <section id="feature-location" ref="targetListenerDOM">
-    <div ref="typingTargetDOM" id="text" class="text-white text-zip-center text-bold-large mt-5 w-100"></div>
+    <div v-bind:class="{'opacity-100': homePageState.feature.location?.scrollPercentage > homePageState.typewriterEffectConfig.typing}"
+         ref="typingTargetDOM" id="text" class="title text-white text-zip-center text-bold-large mt-5 w-100"></div>
     <swiper
-        :slides-per-view="3"
+        v-if="homePageState.feature.location != undefined"
+        slides-per-view="auto"
+        :space-between="100"
+        :centered-slides="true"
+        :auto-height="true"
+        :initial-slide="nowActive"
         slide-class="swiper-slide"
         :loop="false"
         :modules="modules"
         effect="coverflow"
-        :coverflow-effect="{rotate: 0, stretch: 0, depth: 500, modifier: 1, slideShadows: true}"
+        :coverflow-effect="{rotate: 0, stretch: 1, depth: 500, modifier: 0.75, slideShadows: false}"
         class="swiper-container"
-        @swiper="onSwiper"
         @slideChange="onSlideChange"
+        v-bind:style="{'top': (homePageState.feature.location.scrollPercentage) < 120 ? 'calc(' + (homePageState.feature.location.scrollPercentage) + '% - 50.1% - 325px)' : 'calc(70% - 325px)'}"
     >
-      <template v-for="key in 10" :key="key">
+      <template v-for="key in 1" :key="key">
         <swiper-slide v-for="(item, key) in slideData" :key="key">
           <img :src="item.image" alt="">
         </swiper-slide>
       </template>
     </swiper>
-
     <SlideInTooltip
-        title="你知道嗎"
-        message="沒有人愛你"
+        style="z-index: 4"
+        :title="slideData[nowActive].title"
+        :message="slideData[nowActive].message"
         :open="toolTipOpen"/>
   </section>
 </template>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 #feature-location {
+  height: 100vh;
+  width: 100vw;
   position: relative;
-  background-color: black;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
+  max-width: 100vw;
+  overflow-x: hidden;
+  overflow-y: visible;
+  .title {
+    transition: .2s ease-in-out;
+    opacity: 0;
+  }
 }
 
 .swiper-container {
   width: 100vw;
-  height: 600px;
-  top: 0;
+  height: 650px;
+  overflow: visible;
   position: absolute;
+
+  will-change: transform;
 }
 
 .swiper-slide {
+  width: 600px!important;
+  height: 650px;
   display: flex;
-  flex-direction: row;
   justify-content: center;
-  align-items: end;
-  font-size: 2rem;
-  font-family: monospace;
-  letter-spacing: 0.08rem;
-  padding: 12px;
-  //box-shadow: 0 0 100px 200px rgba(0, 0, 0, .4);
+  align-content: center;
   img {
     user-select: none;
-    position: relative;
-    width: 100%;
-    object-fit: contain;
+    width: 600px;
+    height: 650px;
   }
 }
+
 </style>

@@ -4,40 +4,106 @@ import { Plans } from "@/interface/Plan";
 export const useHomePageData = defineStore('homePageData', {
     state: () => {
         return {
-            plans: <Plans>[
-                {
-                    title: "霹哩喀霹哩拉拉 酷酷告別式",
-                    price: "NT 80,000起",
-                    service: [
-                        "場地", "人員需求", "道具準備",
-                        "花卉", "場地佈置", "接待",
-                        "規劃流程", "道具準備", "其他..."
-                    ],
-                    hint: "和世界說掰掰就趁現在 ！ 想來一場主題派對嗎 ？"
-                },
-                {
-                    title: "波波力吶貝貝魯多 華麗下葬",
-                    price: "NT 10,000起",
-                    service: [
-                        "下葬方式", "大體處理", "道具準備",
-                        "墓地", "特殊壽衣", "音樂清單",
-                        "規劃流程", "其他..."
-                    ],
-                    hint: "想要穿著理想中的壽衣嗎 ？ 想在棺材中發"
-                },
-                {
-                    title: "嗶哩巴拉蹦 全都要葬禮",
-                    price: "NT 100,000起",
-                    service: [
-                        "場地", "人員需求", "大體處理",
-                        "花卉", "場地佈置", "特殊壽衣",
-                        "規劃流程", "接待", "靈車",
-                        "道具準備", "下葬方式", "禮車",
-                        "音樂清單", "墓地", "其他..."
-                    ],
-                    hint: "從告別式到下葬幫你一手包辦  。 來一場逼哩巴拉蹦的最後旅程吧 ！"
-                }
+            steps: [
+                [
+                    "一鍵開始你的夢想，\n",
+                    "我們的應用程式在 App Store, Google Play 和 Amazon Store 都可以下載！"
+                ],
+                [
+                    "進入我們的應用程式，客製化屬於你的亡後計畫，這將包括葬禮場地的選擇、儀式形式、音樂選擇、道具布置以及其他相關安排。\n",
+                    "我們致力於提供靈活且個性化的解決方案，以確保你的想法能被完美表達。"
+                ],
+                [
+                    "在這一階段，我們將安排專業的葬禮顧問與你進行一對一的諮詢。我們將聆聽你的需求、偏好以及特殊要求，確認你葬禮的細節，為你",
+                    "評估可行性，並且做初步報價。"
+                ],
+                [
+                    "一切安排妥當後，你就可以安心等死，無後顧之憂，\n",
+                    "因為我們會全力以赴在你死後執行屬於你的「亡者計劃」，盡力讓每個細節都能如你所願。"
+                ]
             ],
+            features: {
+                clothing: [
+                    {
+                        title: "婚紗",
+                        message: "婚紗 婚紗 婚紗 婚紗 婚紗 婚紗 婚紗 婚紗",
+                        image: require("@/assets/images/feature/clothing/wedding-dress.svg")
+                    },
+                    {
+                        title: "小丑",
+                        message: "小丑 小丑 小丑 小丑 小丑 小丑 小丑 小丑",
+                        image: require("@/assets/images/feature/clothing/clown.svg")
+                    },
+                    {
+                        title: "塑料袋",
+                        message: "塑料袋 塑料袋 塑料袋 塑料袋 塑料袋 塑料袋 塑料袋 塑料袋",
+                        image: require("@/assets/images/feature/clothing/plastic-bag.svg")
+                    },
+                    {
+                        title: "裸體",
+                        message: "裸體 裸體 裸體 裸體 裸體 裸體 裸體 裸體",
+                        image: require("@/assets/images/feature/clothing/nude.svg")
+                    },
+                    {
+                        title: "木乃伊",
+                        message: "木乃伊 木乃伊 木乃伊 木乃伊 木乃伊 木乃伊 木乃伊 木乃伊",
+                        image: require("@/assets/images/feature/clothing/mummy.svg")
+                    },
+                ],
+                location: [{
+                    title: "",
+                    message: "",
+                    image: require("@/assets/images/feature/location/cliff.png")
+                },
+                    {
+                        title: "",
+                        message: "",
+                        image: require("@/assets/images/feature/location/nightclub.png")
+                    },
+                    {
+                        title: "",
+                        message: "",
+                        image: require("@/assets/images/feature/location/playground.png")
+                    },
+                    {
+                        title: "",
+                        message: "",
+                        image: require("@/assets/images/feature/location/universe.png")
+                    },
+                    {
+                        title: "",
+                        message: "",
+                        image: require("@/assets/images/feature/location/waste-dump.png")
+                    }
+                ],
+                method: [
+                    {
+                        title: "粉筆",
+                        message: "粉筆粉筆粉筆粉筆粉筆粉筆粉筆粉筆",
+                        image: require("@/assets/images/feature/method/chalk.svg")
+                    },
+                    {
+                        title: "奶粉罐",
+                        message: "奶粉罐奶粉罐",
+                        image: require("@/assets/images/feature/method/milk-jug.svg")
+                    },
+                    {
+                        title: "石頭",
+                        message: "石頭石頭石頭",
+                        image: require("@/assets/images/feature/method/rock.svg")
+                    },
+                    {
+                        title: "垃圾車",
+                        message: "垃圾車垃圾車垃圾車",
+                        image: require("@/assets/images/feature/method/rubbish-trucks.svg")
+                    },
+                    {
+                        title: "海",
+                        message: "聽～海哭的聲音",
+                        image: require("@/assets/images/feature/method/sea.svg")
+                    },
+                ]
+            },
             cases: [
                 {
                     title: "夜店PARTY灑骨灰",
@@ -86,6 +152,40 @@ export const useHomePageData = defineStore('homePageData', {
                         "他們的熱情。"
                 }
             ],
+            plans: <Plans>[
+                {
+                    title: "霹哩喀霹哩拉拉 酷酷告別式",
+                    price: "NT 80,000起",
+                    service: [
+                        "場地", "人員需求", "道具準備",
+                        "花卉", "場地佈置", "接待",
+                        "規劃流程", "道具準備", "其他..."
+                    ],
+                    hint: "和世界說掰掰就趁現在 ！ 想來一場主題派對嗎 ？"
+                },
+                {
+                    title: "波波力吶貝貝魯多 華麗下葬",
+                    price: "NT 10,000起",
+                    service: [
+                        "下葬方式", "大體處理", "道具準備",
+                        "墓地", "特殊壽衣", "音樂清單",
+                        "規劃流程", "其他..."
+                    ],
+                    hint: "想要穿著理想中的壽衣嗎 ？ 想在棺材中發"
+                },
+                {
+                    title: "嗶哩巴拉蹦 全都要葬禮",
+                    price: "NT 100,000起",
+                    service: [
+                        "場地", "人員需求", "大體處理",
+                        "花卉", "場地佈置", "特殊壽衣",
+                        "規劃流程", "接待", "靈車",
+                        "道具準備", "下葬方式", "禮車",
+                        "音樂清單", "墓地", "其他..."
+                    ],
+                    hint: "從告別式到下葬幫你一手包辦  。 來一場逼哩巴拉蹦的最後旅程吧 ！"
+                }
+            ],
             qa: [
                 {
                     title: "如何聯繫亡者計劃以安排服務 ？",
@@ -112,37 +212,7 @@ export const useHomePageData = defineStore('homePageData', {
                     description: "取消服務是否可以退款通常取決於您所選擇的服務類型以及取消的時間 。 一般來說，如果您在服務開始之前取消，您通常可以獲得全額退款或部分退款。但如果服務已經開始進行或完成，則退款可能會受到限制 。",
                     icon: require("@/assets/images/qa/q5.svg")
                 }
-            ],
-            steps: [
-                [
-                    "一鍵開始你的夢想，\n",
-                    "我們的應用程式在 App Store, Google Play 和 Amazon Store 都可以下載！"
-                ],
-                [
-                    "進入我們的應用程式，客製化屬於你的亡後計畫，這將包括葬禮場地的選擇、儀式形式、音樂選擇、道具布置以及其他相關安排。\n",
-                    "我們致力於提供靈活且個性化的解決方案，以確保你的想法能被完美表達。"
-                ],
-                [
-                    "在這一階段，我們將安排專業的葬禮顧問與你進行一對一的諮詢。我們將聆聽你的需求、偏好以及特殊要求，確認你葬禮的細節，為你",
-                    "評估可行性，並且做初步報價。"
-                ],
-                [
-                    "一切安排妥當後，你就可以安心等死，無後顧之憂，\n",
-                    "因為我們會全力以赴在你死後執行屬於你的「亡者計劃」，盡力讓每個細節都能如你所願。"
-                ]
             ]
         }
     }
 })
-
-/**
- * title: "霹哩喀霹哩拉拉 酷酷告別式",
- *                     price: "NT 80,000起",
- *                     service: [
- *                         "場地", "人員需求", "道具準備",
- *                         "花卉", "場地佈置", "接待",
- *                         "規劃流程", "道具準備", "其他..."
- *                     ],
- *                     hint: "和世界說掰掰就趁現在 ！ 想來一場主題派對嗎 ？"
- */
-

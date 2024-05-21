@@ -8,7 +8,7 @@ const targetListenerDOM = ref<null | HTMLElement>(null);
 
 onMounted(() => {
   homePageState.feature.more = homePageState.featureItemRegister(
-      targetListenerDOM, '', '', '', null);
+      targetListenerDOM, '', null);
   useIntersectionObserver(
       targetListenerDOM,
       ([{isIntersecting}]) => {

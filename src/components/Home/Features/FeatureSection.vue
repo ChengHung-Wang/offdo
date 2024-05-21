@@ -7,6 +7,7 @@ import FeatureMore from "@/components/Home/Features/FeatureMore.vue";
 import { onMounted, ref } from "vue";
 import { useIntersectionObserver } from "@vueuse/core";
 import { useHomePageState } from "@/store/home-page-state";
+import FeatureResearch from "@/components/Home/Features/FeatureResearch.vue";
 
 const targetListenerDOM = ref<null | HTMLElement>(null);
 const homePageState = useHomePageState();
@@ -26,9 +27,9 @@ onMounted(() => {
   <section id="feature">
     <LetMeShowYou />
     <FeatureClothing />
-<!--    <FeatureLocation />-->
-<!--    <FeatureMethod />-->
-<!--    <FeatureMore />-->
+    <FeatureLocation />
+    <FeatureMethod />
+    <FeatureMore />
 
 <!--    &lt;!&ndash;  for test  &ndash;&gt;-->
 <!--    <SlideInTooltip-->

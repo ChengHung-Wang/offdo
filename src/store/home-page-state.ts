@@ -13,13 +13,28 @@ export const useHomePageState = defineStore('homePageState', {
                 dom: <null | HTMLElement>null,
             },
             tooltipToggleBound: {
-                open: <number>50,
-                close: <number>120
+                open: <number>40,
+                close: <number>100
             },
             typewriterEffectConfig: {
-                typing: <number>50,
-                delete: <number>100,
-                step: <number>3
+                typing: <number>82,
+                delete: <number>130,
+                step: <number>3,
+                delay: 50
+            },
+            featureHuman: {
+                clothing: {
+                    display: false,
+                    image: require("@/assets/images/feature/clothing/nude.svg")
+                },
+                location: {
+                    display: false,
+                    image: require("@/assets/images/feature/location/nightclub.png")
+                },
+                method: {
+                    display: false,
+                    image: require("@/assets/images/feature/location/nightclub.png")
+                }
             },
             feature: <ServiceFeatures>{}
         }
@@ -31,8 +46,8 @@ export const useHomePageState = defineStore('homePageState', {
         },
         onScroll: async function () {
             for (const value of Object.entries(this.feature)) {
+                const thisFeature = value[1] as FeatureState;
                 try {
-                    const thisFeature = value[1] as FeatureState;
                     if (thisFeature.enter) {
                         thisFeature.scrollPercentage = this.scrollPercentage(<HTMLElement>thisFeature.dom)
                         thisFeature.position.x = <number>thisFeature.dom?.getBoundingClientRect().x;
@@ -51,17 +66,11 @@ export const useHomePageState = defineStore('homePageState', {
         },
         featureItemRegister: (
             dom: HTMLElement | null = null,
-            title= "",
-            tooltipTitle = "",
-            tooltipMessage = "",
+            title = "",
             callback: null | (() => void) = null): FeatureState => {
             return {
                 dom: dom,
                 title: title,
-                tooltip: {
-                    title: tooltipTitle,
-                    message: tooltipMessage
-                },
                 enter: false,
                 position: {
                     x: 0,
