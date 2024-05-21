@@ -434,11 +434,11 @@ onMounted(() => {
             class="stack-cards__item bg shadow-md js-stack-cards__item">
           <div class="card-container">
             <div class="row">
-              <div class="col-7 h-100">
+              <div class="col-sm-7 h-100">
                 <div class="img-container" v-bind:style="{backgroundImage: 'url(\'' + data.background + '\')'}">
                 </div>
               </div>
-              <div class="col-5">
+              <div class="col-sm-5">
                 <div class="title text-bold-title text-zip-center"
                      v-bind:class="{'text-primary-color': index % 2 == 1, 'text-secondary-color': index % 2 == 0}">
                   {{ data.title }}
