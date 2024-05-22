@@ -106,7 +106,7 @@ onMounted(() => {
   <section id="feature-clothing" ref="targetListenerDOM">
     <div v-bind:class="{'opacity-100': homePageState.feature.clothing?.scrollPercentage > homePageState.typewriterEffectConfig.typing}"
          ref="typingTargetDOM" id="text" class="title text-white text-zip-center text-bold-large mt-5 w-100"></div>
-    <swiper
+    <Swiper
         v-if="homePageState.feature.clothing != undefined"
         slides-per-view="auto"
         :space-between="100"
@@ -123,11 +123,11 @@ onMounted(() => {
         v-bind:style="{'top': (homePageState.feature.clothing.scrollPercentage) < 120 ? 'calc(' + (homePageState.feature.clothing.scrollPercentage) + '% - 50.1% - 325px)' : 'calc(70% - 325px)'}"
     >
       <template v-for="key in 1" :key="key">
-        <swiper-slide v-for="(item, key) in slideData" :key="key">
+        <SwiperSlide v-for="(item, key) in slideData" :key="key">
           <img :src="item.image" alt="">
-        </swiper-slide>
+        </SwiperSlide>
       </template>
-    </swiper>
+    </Swiper>
     <SlideInTooltip
         :title="slideData[nowActive].title"
         :message="slideData[nowActive].message"
