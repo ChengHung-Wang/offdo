@@ -28,7 +28,7 @@ import FooterItem from "@/components/Universal/Footer/FooterItem.vue";
         </div>
         <div class="col-sm-3 mb-4 flex-wrap">
           <img src="@/assets/images/logo.svg" class="logo"  alt="offdo logo"/>
-          <span class="text-white">從以下管道下載 APP，並開始使用服務。</span>
+          <span class="text-white">從以下管道下載 App，並開始使用服務。</span>
           <div class="d-flex justify-content-start flex-wrap">
             <img class="download-weight" src="@/assets/images/weight/app_store_download.svg" alt="">
             <img class="download-weight" src="@/assets/images/weight/google_play_download.svg" alt="">
@@ -44,7 +44,7 @@ import FooterItem from "@/components/Universal/Footer/FooterItem.vue";
 
         </div>
        <div class="w-100 text-white" style="font-size: 10px; margin-top: 16px;">
-         老師說要加的 CopyRight 拜託我的組員幫我想想要怎麼放才好
+         Copyright © 2024 offdo.inc All rights reserved.
        </div>
       </div>
     </div>

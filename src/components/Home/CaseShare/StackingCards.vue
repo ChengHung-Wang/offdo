@@ -452,7 +452,7 @@ onMounted(() => {
                     <div class="name" v-bind:class="{'text-white': index % 2 == 0}">{{ data.avatar.name }}</div>
                     <div class="message-box"
                          v-bind:class="{'bg-primary-color': index % 2 == 1, 'bg-secondary-color': index % 2 == 0}">
-                      <div class="message-inner" v-bind:class="{'text-white': index % 2 == 1}">{{ data.message }}</div>
+                      <div class="message-inner" v-bind:class="{'text-white': index % 2 == 1}" v-html="data.message"></div>
                     </div>
                   </div>
                 </div>
@@ -518,6 +518,7 @@ onMounted(() => {
           .message-box {
             position: relative;
             padding: 22px;
+            font-size: 18px;
           }
 
           .message-inner {

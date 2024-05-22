@@ -45,8 +45,8 @@ watch(() => props.open, async (newVal) => {
     <div class="title">
       <span class="text-zip-center">{{ props.title }}</span>
     </div>
-    <div class="message-content">
-      <span v-html="props.message"></span>
+    <div class="message-content text-left">
+      <span v-html="props.message" class="text-left"></span>
     </div>
   </div>
 </template>
@@ -95,7 +95,7 @@ watch(() => props.open, async (newVal) => {
       font-size: 20px;
       font-weight: normal;
       line-height: 36px;
-      text-align: center;
+      text-align: left;
       transition: .25s ease-in-out;
 
       user-select: none;
