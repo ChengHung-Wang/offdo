@@ -8,6 +8,7 @@ import { onMounted, ref } from "vue";
 import { useIntersectionObserver } from "@vueuse/core";
 import { useHomePageState } from "@/store/home-page-state";
 import FeatureResearch from "@/components/Home/Features/FeatureResearch.vue";
+import FeatureDev from "@/components/Home/Features/FeatureDev.vue";
 
 const targetListenerDOM = ref<null | HTMLElement>(null);
 const homePageState = useHomePageState();

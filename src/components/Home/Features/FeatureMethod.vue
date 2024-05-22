@@ -117,11 +117,11 @@ onMounted(() => {
         :loop="false"
         :modules="modules"
         effect="coverflow"
-        :coverflow-effect="{rotate: 0, stretch: 10, depth: 2000, modifier: 0.5, slideShadows: true}"
+        :coverflow-effect="{rotate: 0, stretch: 10, depth: 2000, modifier: 0.5, slideShadows: false}"
         class="swiper-container"
         @slideChange="onSlideChange"
-        v-bind:style="{'top': (homePageState.feature.method.scrollPercentage) < 120 ? 'calc(' + (homePageState.feature.method.scrollPercentage) + '% - 50.1% - 400px)' : 'calc(70% - 325px)'}"
-    >
+        v-bind:class="{'swiper-container-fixed': homePageState.feature.method.scrollPercentage < 120 && homePageState.feature.method.scrollPercentage >= 50}"
+        v-bind:style="{'top': (homePageState.feature.method.scrollPercentage) < 120 ? 'calc(' + Math.round(homePageState.feature.method.scrollPercentage) + '% - 50.1% - 325px)' : 'calc(70% - 325px)'}">
       <template v-for="key in 1" :key="key">
         <swiper-slide v-for="(item, key) in slideData" :key="key">
           <img :src="item.image" alt="">
@@ -150,7 +150,6 @@ onMounted(() => {
     opacity: 0;
   }
 }
-
 .swiper-container {
   width: 100vw;
   height: 650px;
@@ -170,5 +169,10 @@ onMounted(() => {
     width: 100%;
   }
 }
-
+.swiper-container-fixed {
+  position: fixed;
+  left: 50%!important;
+  top: 50%!important;
+  transform: translate(-50%, -50%);
+}
 </style>

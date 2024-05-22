@@ -1,13 +1,14 @@
 <script setup lang="ts">
+
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import { EffectCoverflow } from 'swiper/modules'
-import 'swiper/css';
-import { computed, onMounted, ref } from "vue";
 import { useHomePageState } from "@/store/home-page-state";
-import { useIntersectionObserver } from "@vueuse/core";
+import { onMounted, ref } from "vue";
 import { useHomePageData } from "@/store/home-page-data";
+import { useIntersectionObserver } from "@vueuse/core";
 import SlideInTooltip from "@/components/Universal/SlideInTooltip/SlideInTooltip.vue";
 import Typewriter from 'typewriter-effect/dist/core';
+import 'swiper/css';
 
 const homePageState = useHomePageState();
 const targetListenerDOM = ref<null | HTMLElement>(null);
@@ -17,7 +18,7 @@ const toolTipOpen = ref<boolean>(false);
 const nowActive = ref<number>(2);
 const titleAnimationHasRun = ref<boolean>(false);
 const titleAnimationActionAble = ref<boolean>(true);
-const animationFrameLock = ref<boolean>(false);
+
 
 const onSlideChange = (e) => {
   homePageState.featureHuman.clothing.display = false;
@@ -32,7 +33,7 @@ const onSlideChange = (e) => {
 const slideData = (useHomePageData()).features.clothing;
 
 function clothingDisplay() {
-  homePageState.featureHuman.clothing.display = homePageState.feature.clothing?.scrollPercentage >= 120;
+  homePageState.featureHuman.clothing.display = homePageState.feature.clothing?.scrollPercentage >= 110;
 }
 
 function toggleToolTip() {
@@ -74,18 +75,7 @@ function typingEffect(effect) {
   }
 }
 
-const offsetTop = computed(() => {
-  const nowProgress: number = homePageState.feature.clothing.scrollPercentage;
-  // if (nowProgress <= 120) return 0;
-  if (nowProgress <= 150 && nowProgress > 120) {
-    return `calc(${Math.round(homePageState.feature.clothing.scrollPercentage)}% - 50.1% - 325px)`;
-  }
-  return 'calc(50%.1 - 325px)';
-})
-
-
 onMounted(() => {
-
   useIntersectionObserver(
       targetListenerDOM,
       ([{isIntersecting}]) => {
@@ -98,26 +88,21 @@ onMounted(() => {
   });
   // register
   homePageState.feature.clothing = homePageState.featureItemRegister(targetListenerDOM, "選擇你喜歡的壽衣", () => {
-    if (!animationFrameLock.value) {
-      window.requestAnimationFrame(function() {
-        toggleToolTip();
-        clothingDisplay();
-        toggleToolTip();
-        typingEffect(typewriter);
-        animationFrameLock.value = false;
-      });
-      animationFrameLock.value = true;
-      console.log(homePageState.feature.clothing.scrollPercentage, homePageState.feature.clothing.position.y, ((homePageState.feature.clothing.dom as HTMLElement)?.getBoundingClientRect().height / 2 - 325));
-    }
+    toggleToolTip();
+    clothingDisplay();
+    toggleToolTip();
+    typingEffect(typewriter);
   });
 
 })
+
 </script>
 
 <template>
   <section id="feature-clothing" ref="targetListenerDOM">
     <div v-bind:class="{'opacity-100': homePageState.feature.clothing?.scrollPercentage > homePageState.typewriterEffectConfig.typing}"
          ref="typingTargetDOM" id="text" class="title text-white text-zip-center text-bold-large mt-5 w-100"></div>
+
     <swiper
         v-if="homePageState.feature.clothing != undefined"
         slides-per-view="auto"
@@ -132,18 +117,14 @@ onMounted(() => {
         effect="coverflow"
         :coverflow-effect="{rotate: 0, stretch: 1, depth: 500, modifier: 0.75, slideShadows: false}"
         class="swiper-container"
-        @slideChange="onSlideChange"
-        v-bind:class="{
-          'swiper-container-fixed': homePageState.feature.clothing.scrollPercentage < 120 && homePageState.feature.clothing.position.y <= ((homePageState.feature.clothing.dom as HTMLElement)?.getBoundingClientRect().height / 2 - 325),
-          'swiper-pre-fade-out': homePageState.feature.clothing.scrollPercentage >= 100,
-        }"
-    >
+        @slideChange="onSlideChange">
       <template v-for="key in 1" :key="key">
-        <swiper-slide v-bind:class="{'swiper-slide-pre-fade-out': (homePageState.feature.clothing.scrollPercentage) >= 120}" v-for="(item, key) in slideData" :key="key">
+        <swiper-slide v-bind:class="{'swiper-slide-pre-fade-out': (homePageState.feature.clothing?.scrollPercentage) >= 110}" v-for="(item, key) in slideData" :key="key">
           <img :src="item.image" alt="">
         </swiper-slide>
       </template>
     </swiper>
+
     <SlideInTooltip
         :title="slideData[nowActive].title"
         :message="slideData[nowActive].message"
@@ -151,57 +132,51 @@ onMounted(() => {
   </section>
 </template>
 
-<style lang="scss" scoped>
-#feature-clothing {
-  height: 100vh;
-  width: 100vw;
-  position: relative;
-  z-index: 4;
-  max-width: 100vw;
-  overflow: visible;
-  .title {
-    transition: .2s ease-in-out;
+<style scoped lang="scss">
+  section#feature-clothing {
+    background-color: black;
+    position: relative;
+    overflow: visible;
+    max-width: 100vw;
+    margin-bottom: 50vh;
+    .title {
+      max-width: calc(100vw - 25%);
+      position: absolute;
+      top: 50px;
+      left: 50%;
+      transform: translateX(-50%) scaleX(125%);
+      overflow: hidden;
+    }
+  }
+  .swiper-container {
+    width: 100vw;
+    max-width: 100vw;
+    height: 650px;
+    overflow: hidden;
+    position: sticky;
+    top: calc(50% - 325px);
+    z-index: 3;
+  }
+
+  .swiper-slide {
+    width: 600px!important;
+    height: 650px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    img {
+      user-select: none;
+      width: 600px;
+      height: 650px;
+    }
+  }
+
+  .swiper-pre-fade-out {
+    bottom: 0!important;
+    top: unset!important;
+  }
+
+  .swiper-slide-pre-fade-out + .swiper-slide-active {
     opacity: 0;
   }
-}
-
-.swiper-container {
-  width: 100vw;
-  height: 650px;
-  overflow: visible;
-  position: absolute;
-  top: calc(-50% + 325px);
-  opacity: 0;
-  transition: .2s ease-in-out;
-  will-change: transform;
-}
-
-.swiper-slide {
-  width: 600px!important;
-  height: 650px;
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  img {
-    user-select: none;
-    width: 600px;
-    height: 650px;
-  }
-}
-
-.swiper-pre-fade-out {
-  bottom: 0!important;
-  top: unset!important;
-}
-
-.swiper-slide-pre-fade-out + .swiper-slide-active {
-  opacity: 0;
-}
-
-.swiper-container-fixed {
-  position: fixed;
-  left: 50%!important;
-  top: 50%!important;
-  transform: (-50%, -50%);
-}
 </style>

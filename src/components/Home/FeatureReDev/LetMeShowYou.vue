@@ -12,11 +12,21 @@ const isVisable = ref<boolean>(true);
 
 function callback() {
   const nowProgress = homePageState.feature.human.scrollPercentage;
-  humanFix.value = nowProgress >= 100;
-  if (homePageState.feature.more !== undefined && homePageState.feature.more.enter) humanFix.value = false;
-  if (Object.entries(homePageState.feature).every(e => !(e[0] == 'human' ? false : (e[1] as FeatureState).enter)) && !isVisable.value) {
+  const feature = homePageState.feature;
+  humanFix.value = nowProgress >= 100
+
+  if (!feature.clothing?.enter && !feature.location?.enter && !feature.method?.enter &&  !feature.more?.enter) {
     humanFix.value = false;
   }
+
+  if (feature.more?.scrollPercentage >= 100) {
+    humanFix.value = false;
+  }
+  // if (homePageState.feature.more !== undefined && homePageState.feature.more.enter) humanFix.value = false;
+  // console.log(Object.entries(homePageState.feature).every(e => !(e[0] == 'human' ? false : (e[1] as FeatureState).enter)),isVisable.value)
+  // if (Object.entries(homePageState.feature).every(e => !(e[0] == 'human' ? false : (e[1] as FeatureState).enter))) {
+  //   humanFix.value = false;
+  // }
 }
 
 onMounted(() => {
@@ -25,6 +35,7 @@ onMounted(() => {
       ([{isIntersecting}]) => {
         if (isIntersecting) {
           isVisable.value = isIntersecting;
+          console.log(isIntersecting);
         }
       }
   )
@@ -46,18 +57,16 @@ onMounted(() => {
          id="feature-human"
          v-bind:class="{'position-fixed': humanFix, location: homePageState.featureHuman.location.display}"
          v-bind:style="{
-         top: (homePageState.feature.human.scrollPercentage <= 102 || humanFix) ? '50%' : 'calc(' + homePageState.feature.human.scrollPercentage + '% - 50%)',
          '--activeLocation': 'url(\'' + homePageState.featureHuman.location?.image + '\')'
         }">
       <img v-if="homePageState.featureHuman.clothing.display" :src="homePageState.featureHuman.clothing.image"
            class="clothing" alt="">
     </div>
-
   </section>
 </template>
 
 <style scoped lang="scss">
-#let-me-show-you {
+section#let-me-show-you {
   position: relative;
   height: 100vh;
   width: 100vw;
@@ -89,25 +98,25 @@ onMounted(() => {
   .bottom-text::after {
     left: 100%;
   }
+
   .bottom-text::before {
     right: 100%;
   }
 
   .bottom-text-mask::after {
-    left: 0!important;
+    left: 0 !important;
   }
 
   .bottom-text-mask::before {
-    right: 0!important;
+    right: 0 !important;
   }
 
   #feature-human {
     position: absolute;
-    left: 50%;
-    top: 50%;
+    left: calc(50% - 300px);
+    top: calc(50% - 325px);
     width: 600px;
     height: 650px;
-    transform: translate(-50%, -50%);
     z-index: 3;
     background-image: url("@/assets/images/feature/human.svg");
     background-position: center;

@@ -2,7 +2,7 @@
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import { EffectCoverflow } from 'swiper/modules'
 import 'swiper/css';
-import { onMounted, ref } from "vue";
+import { computed, onMounted, ref } from "vue";
 import { useHomePageState } from "@/store/home-page-state";
 import { useIntersectionObserver } from "@vueuse/core";
 import { useHomePageData } from "@/store/home-page-data";
@@ -74,6 +74,16 @@ function typingEffect(effect) {
   }
 }
 
+const offsetTop = computed(() => {
+  const nowProgress: number = homePageState.feature.location.scrollPercentage;
+  // if (nowProgress <= 120) return -200;
+  if (nowProgress < 120) {
+    return `calc(${Math.round(homePageState.feature.location.scrollPercentage)}% - 50.1% - 325px)`;
+  }
+  return 'calc(70% - 325px)';
+})
+
+
 onMounted(() => {
 
   useIntersectionObserver(
@@ -120,10 +130,10 @@ onMounted(() => {
         :coverflow-effect="{rotate: 0, stretch: 1, depth: 500, modifier: 0.75, slideShadows: false}"
         class="swiper-container"
         @slideChange="onSlideChange"
-        v-bind:style="{'top': (homePageState.feature.location.scrollPercentage) < 120 ? 'calc(' + (homePageState.feature.location.scrollPercentage) + '% - 50.1% - 325px)' : 'calc(70% - 325px)'}"
-    >
+        v-bind:class="{'swiper-container-fixed': homePageState.feature.location.scrollPercentage < 150 && homePageState.feature.location.scrollPercentage >= 120}"
+        v-bind:style="{'top': offsetTop}">
       <template v-for="key in 1" :key="key">
-        <swiper-slide v-for="(item, key) in slideData" :key="key">
+        <swiper-slide v-bind:class="{'swiper-slide-pre-fade-out': (homePageState.feature.location.scrollPercentage) >= 120}" v-for="(item, key) in slideData" :key="key">
           <img :src="item.image" alt="">
         </swiper-slide>
       </template>
@@ -144,21 +154,20 @@ onMounted(() => {
   max-width: 100vw;
   overflow-x: hidden;
   overflow-y: visible;
+  background: gray;
   .title {
     transition: .2s ease-in-out;
     opacity: 0;
   }
 }
-
 .swiper-container {
   width: 100vw;
   height: 650px;
   overflow: visible;
   position: absolute;
-
+  top: calc(70% - 325px);
   will-change: transform;
 }
-
 .swiper-slide {
   width: 600px!important;
   height: 650px;
@@ -170,6 +179,16 @@ onMounted(() => {
     width: 600px;
     height: 650px;
   }
+}
+.swiper-container-fixed {
+  position: fixed;
+  left: 50%!important;
+  top: 50%!important;
+  transform: translate(-50%, -50%);
+}
+
+.swiper-slide-pre-fade-out + .swiper-slide-active {
+  opacity: 0;
 }
 
 </style>
