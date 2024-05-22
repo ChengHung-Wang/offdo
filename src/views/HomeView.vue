@@ -2,7 +2,7 @@
   <div id="home" ref="home">
     <HomeHero />
     <StepsSection />
-    <FeatureSection />
+    <FeatureReDevSection />
     <CaseShareSection />
     <PlanContainer />
     <QaCollapse />
@@ -29,7 +29,7 @@ import StepsSection from "@/components/Home/Steps/StepsSection.vue";
 import CounterContainer from "@/components/Home/Counter/CounterContainer.vue";
 import PlanContainer from "@/components/Home/Plan/PlanContainer.vue";
 import CaseShareSection from "@/components/Home/CaseShare/CaseShareSection.vue";
-import FeatureSection from "@/components/Home/Features/FeatureSection.vue";
+import FeatureReDevSection from "@/components/Home/FeatureReDev/FeatureReDevSection.vue";
 import MemeForTeamMember from "@/components/Home/MemeForTeamMember.vue";
 
 export default defineComponent({
@@ -43,7 +43,7 @@ export default defineComponent({
     PlanContainer,
     CaseShareSection,
     MemeForTeamMember,
-    FeatureSection
+    FeatureReDevSection
   },
   setup() {
     const home = ref(null);
@@ -53,7 +53,7 @@ export default defineComponent({
     onMounted(() => {
       homePageState.homeView.dom = home.value;
       window.addEventListener("wheel", () => {
-        homePageState.onScroll();
+        homePageState.onServiceFeatureScroll();
       });
     })
     return {
