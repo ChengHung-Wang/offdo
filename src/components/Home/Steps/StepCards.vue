@@ -184,7 +184,7 @@ const homePageState = useHomePageState();
   }
   .img-content::after {
     content: "";
-    background-image: url(http://localhost:8080/img/step2-paper.5bfdfaa9.svg);
+    background-image: url("@/assets/images/steps/step2-paper.svg");
     position: absolute;
     width: calc(100% - 24px);
     height: calc(100% + 33%);

@@ -94,7 +94,7 @@ const props = defineProps({
   .hint-description {
     color: var(--primary-color);
     transition: 0.08s ease-in-out;
-    text-align: center;
+    text-align: left;
     padding-top: 30px;
     border-top: 1px black solid;
   }

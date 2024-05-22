@@ -10,7 +10,7 @@ export const useHomePageData = defineStore('homePageData', {
                     "我們的應用程式在 App Store, Google Play 和 Amazon Store 都可以下載！"
                 ],
                 [
-                    "進入我們的應用程式，客製化屬於你的亡後計畫，這將包括葬禮場地的選擇、儀式形式、音樂選擇、道具布置以及其他相關安排。\n",
+                    "進入我們的應用程式，客製化屬於你的亡後計劃，這將包括葬禮場地的選擇、儀式形式、音樂選擇、道具布置以及其他相關安排。\n",
                     "我們致力於提供靈活且個性化的解決方案，以確保你的想法能被完美表達。"
                 ],
                 [
@@ -35,13 +35,13 @@ export const useHomePageData = defineStore('homePageData', {
                         image: require("@/assets/images/feature/clothing/clown.svg")
                     },
                     {
-                        title: "塑料袋",
-                        message: "塑料袋 塑料袋 塑料袋 塑料袋 塑料袋 塑料袋 塑料袋 塑料袋",
+                        title: "你知道嗎",
+                        message: "王正宏網頁又出bug了",
                         image: require("@/assets/images/feature/clothing/plastic-bag.svg")
                     },
                     {
-                        title: "裸體",
-                        message: "裸體 裸體 裸體 裸體 裸體 裸體 裸體 裸體",
+                        title: "",
+                        message: "",
                         image: require("@/assets/images/feature/clothing/nude.svg")
                     },
                     {
@@ -50,11 +50,12 @@ export const useHomePageData = defineStore('homePageData', {
                         image: require("@/assets/images/feature/clothing/mummy.svg")
                     },
                 ],
-                location: [{
-                    title: "",
-                    message: "",
-                    image: require("@/assets/images/feature/location/cliff.png")
-                },
+                location: [
+                    {
+                        title: "",
+                        message: "",
+                        image: require("@/assets/images/feature/location/cliff.png")
+                    },
                     {
                         title: "",
                         message: "",
@@ -102,20 +103,38 @@ export const useHomePageData = defineStore('homePageData', {
                         message: "聽～海哭的聲音",
                         image: require("@/assets/images/feature/method/sea.svg")
                     },
+                ],
+                dev: [
+                    {
+                        title: "裸體",
+                        message: "生不帶來，死不帶去!回歸到最初，用最純<br>真的面貌迎接最後一程!"
+                    },
+                    {
+                        title: "木乃伊",
+                        message: "為了即將到來的復活!變成木乃伊吧!!"
+                    },
+                    {
+                        title: "夜店 Party",
+                        message: "在最後的最後也要當夜店裡最靚的仔！<br>大家不許哭，都給我跳進舞池一起嗨！"
+                    },
+                    {
+                        title: "奶粉罐",
+                        message: "選擇奶粉罐返老還童，讓你的一生始終如一"
+                    }
                 ]
             },
             cases: [
                 {
                     title: "夜店PARTY灑骨灰",
                     avatar: {
-                        name: "亡X宏",
-                        img: require("@/assets/images/avatar/casey-wang.png")
+                        name: "方X涵",
+                        img: require("@/assets/images/avatar/avatar-man.png")
                     },
-                    background: require("@/assets/images/cases/night-club.png"),
-                    message: "人生就是要嗨吧 ！ 夜店咚ㄘ咚ㄘ的精神" +
+                    background: require("@/assets/images/cases/night-club-gray.png"),
+                    message: "人生就是要嗨吧！夜店咚ㄘ咚ㄘ的精神" +
                         "才是屬於我的世界，我要把自己葬送在" +
                         "這個極樂世界，人生就是要開開心心地" +
-                        "結束啊 ！ 希望我的朋友們可以在我離開" +
+                        "結束啊！希望我的朋友們可以在我離開" +
                         "的日子也能夠盡情的狂歡 。"
                 },
                 {
@@ -124,29 +143,29 @@ export const useHomePageData = defineStore('homePageData', {
                         name: "亡X宏",
                         img: require("@/assets/images/avatar/casey-wang.png")
                     },
-                    background: require("@/assets/images/cases/cry.png"),
+                    background: require("@/assets/images/cases/cry-gray.png"),
                     message: "說真的我人生其實沒什麼遺憾，但我最" +
                         "後悔的是曾經的我做過那些踐踏別人的" +
                         "心的那些事，我想要和我的前任們深深" +
                         "地道歉，我依然沒辦法正面的面對他們，" +
                         "但我願意在最後向他們贖罪，至少會讓" +
-                        "她們的心好過一點吧..." +
-                        "幸好有亡者計畫讓我能夠辦一個我想要" +
+                        "他們的心好過一點吧..." +
+                        "幸好有亡者計劃讓我能夠辦一個我想要" +
                         "的後事。"
                 },
                 {
                     title: "遺骨吉他",
                     avatar: {
-                        name: "亡X宏",
-                        img: require("@/assets/images/avatar/casey-wang.png")
+                        name: "許X文",
+                        img: require("@/assets/images/avatar/avatar-woman.png")
                     },
-                    background: require("@/assets/images/cases/guitar.png"),
+                    background: require("@/assets/images/cases/guitar-gray.png"),
                     message: "我一生奉獻於音樂，從小就跟叔叔一起" +
                         "玩各種樂器甚至一起組了樂團，我們渴" +
                         "望嗨翻全世界，讓世界變得更活躍，也" +
                         "因此我也希望在我不在這個世界上的時" +
                         "候能夠延續我的熱情，所以就向亡者計" +
-                        "畫申請了服務，我想要藉由我的遺骨製" +
+                        "劃申請了服務，我想要藉由我的遺骨製" +
                         "作的吉他讓來到我的葬禮的人，能享受" +
                         "我的最後一份狂野，讓大家記得我帶給" +
                         "他們的熱情。"
@@ -157,11 +176,11 @@ export const useHomePageData = defineStore('homePageData', {
                     title: "霹哩喀霹哩拉拉 酷酷告別式",
                     price: "NT 80,000起",
                     service: [
-                        "場地", "人員需求", "道具準備",
+                        "場地", "人員需求", "魔性音樂",
                         "花卉", "場地佈置", "接待",
                         "規劃流程", "道具準備", "其他..."
                     ],
-                    hint: "和世界說掰掰就趁現在 ！ 想來一場主題派對嗎 ？"
+                    hint: "和世界說掰掰就趁現在！想來一場主題派對嗎?"
                 },
                 {
                     title: "波波力吶貝貝魯多 華麗下葬",
@@ -171,7 +190,7 @@ export const useHomePageData = defineStore('homePageData', {
                         "墓地", "特殊壽衣", "音樂清單",
                         "規劃流程", "其他..."
                     ],
-                    hint: "想要穿著理想中的壽衣嗎 ？ 想在棺材中發"
+                    hint: "想要穿著理想中的壽衣嗎？想在棺材中發光發熱嗎？快來選擇華麗下葬吧！"
                 },
                 {
                     title: "嗶哩巴拉蹦 全都要葬禮",
@@ -183,33 +202,33 @@ export const useHomePageData = defineStore('homePageData', {
                         "道具準備", "下葬方式", "禮車",
                         "音樂清單", "墓地", "其他..."
                     ],
-                    hint: "從告別式到下葬幫你一手包辦  。 來一場逼哩巴拉蹦的最後旅程吧 ！"
+                    hint: "從告別式到下葬幫你一手包辦。來一場逼哩巴拉蹦的最後旅程吧！"
                 }
             ],
             qa: [
                 {
-                    title: "如何聯繫亡者計劃以安排服務 ？",
-                    description: "你可以下載亡者計劃的app並填寫表單或是通過我們的網站上的聯繫表格或電話與我們聯繫 。 我們的客服團隊將會盡快與你取得聯繫，安排適合你的諮詢時間 。",
+                    title: "如何聯繫亡者計劃以安排服務？",
+                    description: "你可以下載亡者計劃的 App 並填寫表單或是通過我們的網站上的聯繫表格或電話與我們聯繫。我們的客服團隊將會盡快與你取得聯繫，安排適合你的諮詢時間。",
                     icon: require("@/assets/images/qa/q1.svg")
                 },
                 {
-                    title: "可以只客製化單項服務嗎 ？ 例如 : 特殊祭品 、 壽衣 。",
-                    description: "可以哦，可以單獨項目獨立出來為你估價，每個項目會依據不同的需求和細節衡量，最後彙整給你 。 ",
+                    title: "可以只客製化單項服務嗎？例如：特殊祭品、壽衣。",
+                    description: "可以哦，可以單獨項目獨立出來為你估價，每個項目會依據不同的需求和細節衡量，最後彙整給你。",
                     icon: require("@/assets/images/qa/q2.svg")
                 },
                 {
-                    title: "我可以估價再購買服務嗎？估價需要費用嗎？*抵銷",
-                    description: "可以哦，但估價時會先跟你收一筆估價費，費用為2000以內，後續確認要購買服務後將會退回估價費用 。 ",
+                    title: "我可以估價再購買服務嗎？估價需要費用嗎？",
+                    description: "可以哦，但估價時會先跟你收一筆估價費，費用為2000以內，後續確認要購買服務後將會退回估價費用。",
                     icon: require("@/assets/images/qa/q3.svg")
                 },
                 {
-                    title: "非亡者本人可以預約嗎？*授權書 找律師",
-                    description: "可以哦，但是要得到亡者本人的授權書或遺囑證明我們才能為你進行服務 。 ",
+                    title: "非亡者本人可以預約嗎？",
+                    description: "可以哦，但是要得到亡者本人的授權書或遺囑證明我們才能為你進行服務。",
                     icon: require("@/assets/images/qa/q4.svg")
                 },
                 {
                     title: "取消服務可以退款嗎？",
-                    description: "取消服務是否可以退款通常取決於您所選擇的服務類型以及取消的時間 。 一般來說，如果您在服務開始之前取消，您通常可以獲得全額退款或部分退款。但如果服務已經開始進行或完成，則退款可能會受到限制 。",
+                    description: "取消服務是否可以退款通常取決於你所選擇的服務類型以及取消的時間。一般來說，如果你在服務開始之前取消，你通常可以獲得全額退款或部分退款。但如果服務已經開始進行或完成，則退款可能會受到限制。",
                     icon: require("@/assets/images/qa/q5.svg")
                 }
             ]

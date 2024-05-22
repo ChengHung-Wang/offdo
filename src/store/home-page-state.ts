@@ -14,10 +14,10 @@ export const useHomePageState = defineStore('homePageState', {
             },
             tooltipToggleBound: {
                 open: <number>40,
-                close: <number>100
+                close: <number>130
             },
             typewriterEffectConfig: {
-                typing: <number>82,
+                typing: <number>70,
                 delete: <number>130,
                 step: <number>3,
                 delay: 50
@@ -44,7 +44,7 @@ export const useHomePageState = defineStore('homePageState', {
         updateNowIndex(index: number) {
             this.steps.nowIndex = index;
         },
-        onScroll: async function () {
+        onServiceFeatureScroll: async function () {
             for (const value of Object.entries(this.feature)) {
                 const thisFeature = value[1] as FeatureState;
                 try {

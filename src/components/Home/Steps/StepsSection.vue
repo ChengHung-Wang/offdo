@@ -13,7 +13,7 @@ const homePageData = useHomePageData();
 <template>
   <section id="steps">
     <div class="container">
-      <SectionTitle title="你的計畫如何被實現?" />
+      <SectionTitle title="你的計劃如何被實現?" />
       <StepsBar />
     </div>
     <div class="container">
