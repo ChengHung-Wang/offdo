@@ -27,6 +27,7 @@
     margin-bottom: 100px;
     margin-top: 0;
     overflow-x: hidden;
+    max-width: 100vw;
     .container {
       background-color: black;
       height: 100%;

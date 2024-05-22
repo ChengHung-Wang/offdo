@@ -1,5 +1,5 @@
 <template>
-  <div id="app" element-loading-text="我是 Loading 動畫" v-loading="loading">
+  <div element-loading-text="我是 Loading 動畫" v-loading="loading">
     <navbar />
     <router-view/>
   </div>
@@ -10,6 +10,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: black;
+  max-width: 100vw;
 }
 </style>
 <script setup lang="ts">

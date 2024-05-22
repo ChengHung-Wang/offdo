@@ -17,7 +17,7 @@ const homePageState = useHomePageState();
           <div class="description">前往下載</div>
         </div>
         <div class="step-2" v-bind:class="{'bg-primary-color': homePageState.steps.nowIndex == 1}">
-          <div class="description">訂製亡后計劃</div>
+          <div class="description">訂製亡後計劃</div>
         </div>
         <div class="step-3" v-bind:class="{'bg-primary-color': homePageState.steps.nowIndex == 2}">
           <div class="description">專人評估</div>
