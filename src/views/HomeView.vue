@@ -1,7 +1,7 @@
 <template>
   <div id="home" ref="home">
     <HomeHero />
-    <StepsSection />
+    <StepsSection v-if="!mobile" />
     <FeatureReDevSection />
     <CaseShareSection />
     <PlanContainer />
@@ -22,6 +22,7 @@
 <script lang="ts">
 import { defineComponent, onMounted, ref } from 'vue';
 import { useHomePageState } from '@/store/home-page-state';
+import device from "current-device";
 import HomeHero from "@/components/Home/HomeHero.vue";
 import Footer from "@/components/Universal/Footer/FooterContainer.vue";
 import QaCollapse from "@/components/Home/QaCollapse.vue";
@@ -49,17 +50,22 @@ export default defineComponent({
     const home = ref(null);
     const meme = ref(false);
     const homePageState = useHomePageState();
-
+    const mobile = ref(false);
     onMounted(() => {
+      mobile.value = device.mobile();
       homePageState.homeView.dom = home.value;
       window.addEventListener("wheel", () => {
         homePageState.onServiceFeatureScroll();
       });
+      window.addEventListener("touchmove", () => {
+        homePageState.onServiceFeatureScroll();
+      })
     })
     return {
       home,
       homePageState,
-      meme
+      meme,
+      mobile
     };
   }
 });

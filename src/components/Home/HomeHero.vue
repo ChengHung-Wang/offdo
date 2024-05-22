@@ -57,6 +57,7 @@ onMounted(() => {
     const perPercent = (hero.value as HTMLElement).clientHeight / 100;
     nowProgress.value = 100 - (hero.value as HTMLElement).getBoundingClientRect().y / perPercent;
   })
+
 });
 </script>
 

@@ -23,11 +23,10 @@
 <style scoped lang="scss">
   #counter {
     // TODO: change to dynamic
-    max-height: 650px;
     position: relative;
     margin-bottom: 100px;
-    margin-top: 300px;
-    overflow: hidden;
+    margin-top: 0;
+    overflow-x: hidden;
     .container {
       background-color: black;
       height: 100%;
@@ -58,9 +57,9 @@
     background: linear-gradient(to bottom, black 0%, rgba(0, 0, 0, 0) 100%);
     position: absolute;
     inset: 0;
-    height: 250px;
+    height: 200px;
     width: 100%;
-    top: -70px;
-    z-index: 9;
+    top: -50px;
+    z-index: 9999;
   }
 </style>

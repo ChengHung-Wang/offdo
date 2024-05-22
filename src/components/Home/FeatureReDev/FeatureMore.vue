@@ -50,6 +50,7 @@ onMounted(() => {
   .text {
     position: absolute;
     bottom: 80px;
+    background-color: rgba(0, 0, 0, .6);
     .title, .description {
       transform: scaleX(125%);
       transform-origin: left;

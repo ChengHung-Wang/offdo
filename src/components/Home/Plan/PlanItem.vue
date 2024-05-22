@@ -36,7 +36,7 @@ const props = defineProps({
 
 <style scoped lang="scss">
 .plan-item {
-  height: 557px;
+  min-height: 557px;
   position: relative;
   background-color: var(--secondary-color);
   padding-left: 23px;

@@ -22,7 +22,7 @@ const titleAnimationActionAble = ref<boolean>(true);
 
 const onSlideChange = (e) => {
   homePageState.featureHuman.method.display = false;
-  nowActive.value = e.activeIndex;
+  nowActive.value = e.activeIndex % 5;
   setTimeout(() => {
     methodDisplay();
     if (slideData[e.activeIndex] != undefined)
@@ -87,7 +87,7 @@ onMounted(() => {
     delay: homePageState.typewriterEffectConfig.delay,
   });
   // register
-  homePageState.feature.method = homePageState.featureItemRegister(targetListenerDOM, "選擇你喜歡的壽衣", () => {
+  homePageState.feature.method = homePageState.featureItemRegister(targetListenerDOM, "選擇你喜歡的下葬方式", () => {
     toggleToolTip();
     methodDisplay();
     toggleToolTip();
@@ -106,20 +106,20 @@ onMounted(() => {
     <swiper
         v-if="homePageState.feature.method != undefined"
         slides-per-view="auto"
-        :space-between="100"
+        :space-between="-500"
         :centered-slides="true"
         :auto-height="true"
-        :initial-slide="nowActive"
+        :initial-slide="nowActive * 2"
         slide-active-class="swiper-slide-active"
         slide-class="swiper-slide"
         :loop="false"
         :modules="modules"
         effect="coverflow"
-        :coverflow-effect="{rotate: 0, stretch: 1, depth: 500, modifier: 0.75, slideShadows: false}"
+        :coverflow-effect="{rotate: 0, stretch: 1, depth: 1500, modifier: 0.75, slideShadows: false}"
         class="swiper-container"
         @slideChange="onSlideChange">
-      <template v-for="key in 1" :key="key">
-        <swiper-slide v-bind:class="{'swiper-slide-pre-fade-out': (homePageState.feature.method?.scrollPercentage) >= 110}" v-for="(item, key) in slideData" :key="key">
+      <template v-for="index in 10" :key="index">
+        <swiper-slide v-for="(item, key) in slideData" :key="key">
           <img :src="item.image" alt="">
         </swiper-slide>
       </template>

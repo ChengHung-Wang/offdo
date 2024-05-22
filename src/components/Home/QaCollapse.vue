@@ -21,7 +21,7 @@ const activeName = ref('1')
                   {{ data.title }}
                 </span>
               </template>
-              <div>
+              <div style="text-align: left">
                 {{ data.description }}
               </div>
             </el-collapse-item>
@@ -34,6 +34,10 @@ const activeName = ref('1')
 
 <style scoped lang="scss">
   #qa {
+    z-index: 1000;
+    position: relative;
+    padding-top: 60px;
+    padding-bottom: 150px;
     // override
     .el-collapse {
       --el-collapse-header-bg-color: black;
@@ -53,7 +57,6 @@ const activeName = ref('1')
     }
 
     background-color: black;
-    padding: 60px 0;
     .title {
       transform: scaleX(125%);
       color: white;
@@ -66,6 +69,7 @@ const activeName = ref('1')
     }
     .collapse-header-description {
       font-weight: 400;
+      text-align: left;
     }
   }
 </style>

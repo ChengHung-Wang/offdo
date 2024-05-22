@@ -26,81 +26,81 @@ export const useHomePageData = defineStore('homePageData', {
                 clothing: [
                     {
                         title: "婚紗",
-                        message: "婚紗 婚紗 婚紗 婚紗 婚紗 婚紗 婚紗 婚紗",
+                        message: "還沒結婚嗎?在最後辦一場婚禮，嫁給你想嫁的人!",
                         image: require("@/assets/images/feature/clothing/wedding-dress.svg")
                     },
                     {
                         title: "小丑",
-                        message: "小丑 小丑 小丑 小丑 小丑 小丑 小丑 小丑",
+                        message: "Am I joke to you?我在我的人生中扮演一個小丑 ^^",
                         image: require("@/assets/images/feature/clothing/clown.svg")
                     },
                     {
-                        title: "你知道嗎",
-                        message: "王正宏網頁又出bug了",
+                        title: "垃圾袋",
+                        message: "我是個垃圾，垃圾就應該裝進垃圾袋裡嗚嗚",
                         image: require("@/assets/images/feature/clothing/plastic-bag.svg")
                     },
                     {
-                        title: "",
-                        message: "",
+                        title: "裸體",
+                        message: "生不帶來死不帶去，用最初的面貌迎接最後!",
                         image: require("@/assets/images/feature/clothing/nude.svg")
                     },
                     {
                         title: "木乃伊",
-                        message: "木乃伊 木乃伊 木乃伊 木乃伊 木乃伊 木乃伊 木乃伊 木乃伊",
+                        message: "為了即將到來的復活!變成木乃伊吧!!",
                         image: require("@/assets/images/feature/clothing/mummy.svg")
                     },
                 ],
                 location: [
                     {
-                        title: "",
-                        message: "",
+                        title: "懸崖上",
+                        message: "別給我像是天堂的懸崖，希望我跳下懸崖後，真的有天堂。",
                         image: require("@/assets/images/feature/location/cliff.png")
                     },
                     {
-                        title: "",
-                        message: "",
+                        title: "夜店 Party",
+                        message: "在最後的最後也要當夜店裡最靚的仔!<br/>大家不許哭，都給我跳進舞池一起嗨!",
                         image: require("@/assets/images/feature/location/nightclub.png")
                     },
                     {
-                        title: "",
-                        message: "",
+                        title: "遊樂園",
+                        message: "想和大家再玩一次雲霄飛車，<br>再搭一次摩天輪，歡樂的說再見！",
                         image: require("@/assets/images/feature/location/playground.png")
                     },
                     {
-                        title: "",
-                        message: "",
+                        title: "宇宙",
+                        message: "從此我跳出了時間，變成宇宙中的塵埃，散落四周，無處不在。",
                         image: require("@/assets/images/feature/location/universe.png")
                     },
                     {
-                        title: "",
-                        message: "",
+                        title: "垃圾場",
+                        message: "我是個小垃圾，我的歸屬就是垃圾場，歡迎在座的垃圾光臨，一起送作堆。",
                         image: require("@/assets/images/feature/location/waste-dump.png")
                     }
                 ],
                 method: [
                     {
                         title: "粉筆",
-                        message: "粉筆粉筆粉筆粉筆粉筆粉筆粉筆粉筆",
+                        message: "將骨灰製作成粉筆，讓想念你的人寫下想對你說的話",
                         image: require("@/assets/images/feature/method/chalk.svg")
                     },
                     {
                         title: "奶粉罐",
-                        message: "奶粉罐奶粉罐",
+                        message: "選擇奶粉罐返老還童，讓你的一生始終如一",
                         image: require("@/assets/images/feature/method/milk-jug.svg")
                     },
                     {
-                        title: "石頭",
-                        message: "石頭石頭石頭",
+                        title: "骨灰晶石",
+                        message: "將你的骨灰製作成晶石，送給你最愛的人",
                         image: require("@/assets/images/feature/method/rock.svg")
                     },
                     {
                         title: "垃圾車",
-                        message: "垃圾車垃圾車垃圾車",
+                        message: "我的人生如同垃圾一般，那就把我打包成垃圾吧<br />是不是曾經想體驗垃圾的一生，我們現在就讓你完成夢想",
                         image: require("@/assets/images/feature/method/rubbish-trucks.svg")
                     },
                     {
-                        title: "海",
-                        message: "聽～海哭的聲音",
+                        title: "海葬",
+                        message: "熱愛大海的你想不想在最後一程體驗海洋冒險",
                         image: require("@/assets/images/feature/method/sea.svg")
                     },
                 ],

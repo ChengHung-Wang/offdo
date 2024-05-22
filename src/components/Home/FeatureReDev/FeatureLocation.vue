@@ -87,7 +87,7 @@ onMounted(() => {
     delay: homePageState.typewriterEffectConfig.delay,
   });
   // register
-  homePageState.feature.location = homePageState.featureItemRegister(targetListenerDOM, "選擇你喜歡的壽衣", () => {
+  homePageState.feature.location = homePageState.featureItemRegister(targetListenerDOM, "選擇你喜歡的告別式場地", () => {
     toggleToolTip();
     locationDisplay();
     toggleToolTip();

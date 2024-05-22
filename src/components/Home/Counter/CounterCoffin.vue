@@ -53,6 +53,6 @@ img {
   transition: cubic-bezier(0.1, 0.4, 0.9, 1.2) .3s;
   bottom: 0;
   left: 0;
-  z-index: 999;
+  z-index: 9;
 }
 </style>

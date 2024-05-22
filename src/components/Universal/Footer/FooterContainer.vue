@@ -2,6 +2,10 @@
 
 import FooterHeader from "@/components/Universal/Footer/FooterHeader.vue";
 import FooterItem from "@/components/Universal/Footer/FooterItem.vue";
+import { ref } from "vue";
+import MemeForTeamMember from "@/components/Home/MemeForTeamMember.vue";
+
+const open = ref(false);
 </script>
 
 <template>
@@ -10,21 +14,21 @@ import FooterItem from "@/components/Universal/Footer/FooterItem.vue";
       <div class="row">
         <div class="col-sm-3 mb-4">
           <FooterHeader text="支持服務" />
-          <FooterItem text="聯繫客服" />
-          <FooterItem text="管理我的帳戶" />
+          <FooterItem @click="open = true" text="聯繫客服" />
+          <FooterItem @click="open = true" text="管理我的帳戶" />
         </div>
         <div class="col-sm-3 mb-4">
           <FooterHeader text="活動" />
-          <FooterItem text="優惠促銷" />
-          <FooterItem text="BrainBoom 競賽" />
+          <FooterItem @click="open = true" text="優惠促銷" />
+          <FooterItem @click="open = true" text="BrainBoom 競賽" />
         </div>
         <div class="col-sm-3 mb-4">
           <FooterHeader text="關於 offdo" />
-          <FooterItem text="品牌故事" />
-          <FooterItem text="QA問答" />
-          <FooterItem text="聯絡我們" />
-          <FooterItem text="成為合作夥伴" />
-          <FooterItem text="商業倫理與法規道德" />
+          <FooterItem @click="open = true" text="品牌故事" />
+          <FooterItem @click="open = true" text="QA問答" />
+          <FooterItem @click="open = true" text="聯絡我們" />
+          <FooterItem @click="open = true" text="成為合作夥伴" />
+          <FooterItem @click="open = true" text="商業倫理與法規道德" />
         </div>
         <div class="col-sm-3 mb-4 flex-wrap">
           <img src="@/assets/images/logo.svg" class="logo"  alt="offdo logo"/>
@@ -48,6 +52,10 @@ import FooterItem from "@/components/Universal/Footer/FooterItem.vue";
        </div>
       </div>
     </div>
+
+    <el-dialog v-model="open" title="組員介紹" width="calc(100vw - 48px)">
+      <MemeForTeamMember />
+    </el-dialog>
   </footer>
 </template>
 
@@ -58,7 +66,9 @@ import FooterItem from "@/components/Universal/Footer/FooterItem.vue";
     padding-top: 80px;
     padding-bottom: 70px;
     position: relative;
-    overflow: hidden;
+    overflow-y: visible;
+    width: 100vw;
+    overflow-x: hidden;
     .footer-header {
       margin-bottom: 40px;
       text-align: left;
@@ -100,8 +110,8 @@ import FooterItem from "@/components/Universal/Footer/FooterItem.vue";
       font-weight: 500;
     }
     .bottom-row {
-      position: absolute;
-      bottom: 70px;
+      position: relative;
+      bottom: 0;
     }
   }
 </style>

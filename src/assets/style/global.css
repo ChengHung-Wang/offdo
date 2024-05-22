@@ -3,6 +3,13 @@
     --secondary-color: #E0FF00;
 }
 
+.el-dialog {
+    background: #222222!important;
+}
+.el-dialog__title {
+    color: white!important;
+}
+
 * {
     font-family: 'Noto Sans TC', Inter, 'Helvetica Neue', Helvetica, 'PingFang SC',
     'Hiragino Sans GB', 'Microsoft YaHei', '微软雅黑', Arial, sans-serif !important;

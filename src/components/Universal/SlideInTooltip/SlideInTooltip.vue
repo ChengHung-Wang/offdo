@@ -90,6 +90,8 @@ watch(() => props.open, async (newVal) => {
     flex-wrap: wrap;
     height: 100%;
     overflow: hidden;
+    padding: 22px;
+    text-align: justify;
 
     span {
       font-size: 20px;

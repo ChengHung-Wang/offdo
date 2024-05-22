@@ -15,9 +15,9 @@ function callback() {
   const feature = homePageState.feature;
   humanFix.value = nowProgress >= 100
 
-  if (!feature.clothing?.enter && !feature.location?.enter && !feature.method?.enter &&  !feature.more?.enter) {
-    humanFix.value = false;
-  }
+  // if (!feature.clothing?.enter && !feature.location?.enter && !feature.method?.enter &&  !feature.more?.enter) {
+  //   humanFix.value = false;
+  // }
 
   if (feature.more?.scrollPercentage >= 100) {
     humanFix.value = false;
@@ -61,6 +61,7 @@ onMounted(() => {
         }">
       <img v-if="homePageState.featureHuman.clothing.display" :src="homePageState.featureHuman.clothing.image"
            class="clothing" alt="">
+<!--      <img v-if="homePageState.featureHuman.method.display" :src="homePageState.featureHuman.method.image" class="method" alt="">-->
     </div>
   </section>
 </template>
@@ -79,6 +80,15 @@ section#let-me-show-you {
   flex-wrap: wrap;
   padding-top: 120px;
   padding-bottom: 90px;
+
+  .method {
+    transform: scale(1.5);
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 100;
+    object-fit: contain;
+  }
 
   .bottom-text {
     position: relative;
