@@ -19,7 +19,7 @@ const CoffinPosition = [
 <style scoped lang="scss">
 .counter-animation {
   position: relative;
-  height: 750px;
+  height: 650px;
   width: 100%;
   overflow: visible;
 }

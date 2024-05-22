@@ -7,7 +7,8 @@ const duration = 2000;
 
 const props = defineProps({
   title: String,
-  target: Number
+  target: Number,
+  prefix: String
 })
 
 const startCounterAnimation = () => {
@@ -50,7 +51,7 @@ onMounted(() => {
       {{ props.title }}
     </h3>
     <transition name="count">
-      <span class="number">{{ count }}</span>
+      <span class="number" v-bind:style="{'--prefix': '\'' + props.prefix + '\''}">{{ count }}</span>
     </transition>
   </div>
 </template>
@@ -65,10 +66,27 @@ onMounted(() => {
   .title {
     color: white;
     width: 100%;
+    transform: scaleX(125%);
+    transform-origin: left;
+    text-align: left;
+    font-size: 36px;
   }
   .number {
     font-size: 130px;
     font-weight: 500;
+    position: relative;
+    line-height: 130px;
+  }
+  .number::after {
+    content: var(--prefix);
+    position: absolute;
+    font-size: 36px;
+    bottom: -40px;
+    right: -72px;
+    color: white;
+    transform: scaleX(125%);
+    transform-origin: center;
+    text-align: center;
   }
 }
 </style>
