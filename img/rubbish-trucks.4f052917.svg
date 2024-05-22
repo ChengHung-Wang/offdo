@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="_圖層_4" data-name="圖層 4" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 979.13 863.6">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+      }
+
+      .cls-1, .cls-2, .cls-3, .cls-4 {
+        stroke-width: 0px;
+      }
+
+      .cls-2 {
+        fill: #9500ff;
+      }
+
+      .cls-3 {
+        fill: #e0ff00;
+      }
+
+      .cls-4 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <g>
+    <polygon class="cls-3" points="390.22 430.29 283.5 430.29 205.51 545.22 205.51 628.34 195.25 644.76 213.72 669.39 783.88 669.39 783.88 613.88 762.66 613.88 762.66 526.72 664.51 416.63 400.56 416.63 400.56 615.31 390.18 615.31 390.22 430.29"/>
+    <g>
+      <circle class="cls-2" cx="628.56" cy="670.23" r="52.51"/>
+      <circle class="cls-3" cx="628.56" cy="670.23" r="14.43"/>
+    </g>
+    <g>
+      <circle class="cls-2" cx="346" cy="669.39" r="52.51"/>
+      <circle class="cls-3" cx="346" cy="669.39" r="14.43"/>
+    </g>
+    <polygon class="cls-4" points="283.41 447.19 216.63 545.6 283.41 545.6 283.41 447.19"/>
+    <rect class="cls-2" x="205.51" y="592.78" width="23.43" height="36.06" transform="translate(434.46 1221.62) rotate(-180)"/>
+  </g>
+  <rect class="cls-1" width="979.13" height="863.6"/>
+</svg>

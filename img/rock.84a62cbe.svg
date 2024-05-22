@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 979.13 863.6">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+      }
+
+      .cls-1, .cls-2, .cls-3, .cls-4 {
+        stroke: #9500ff;
+        stroke-miterlimit: 10;
+        stroke-width: 14.69px;
+      }
+
+      .cls-5 {
+        clip-path: url(#clippath);
+      }
+
+      .cls-6 {
+        fill: none;
+        stroke-width: 0px;
+      }
+
+      .cls-2 {
+        fill: #ecffc2;
+      }
+
+      .cls-7 {
+        clip-path: url(#clippath-1);
+      }
+
+      .cls-8 {
+        clip-path: url(#clippath-3);
+      }
+
+      .cls-9 {
+        clip-path: url(#clippath-2);
+      }
+
+      .cls-3 {
+        fill: #e0ff00;
+      }
+
+      .cls-4 {
+        fill: #e2ff70;
+      }
+    </style>
+    <clipPath id="clippath">
+      <polyline class="cls-6" points="277.63 278.4 205.56 428.15 347.56 723.23 631.57 723.23 703.93 572.84"/>
+    </clipPath>
+    <clipPath id="clippath-1">
+      <polygon class="cls-6" points="631.57 133.07 347.56 133.07 205.56 428.15 347.56 723.23 631.57 723.23 773.57 428.15 631.57 133.07"/>
+    </clipPath>
+    <clipPath id="clippath-2">
+      <polyline class="cls-6" points="703.93 572.84 773.57 428.15 631.57 133.07 347.57 133.07 277.63 278.4"/>
+    </clipPath>
+    <clipPath id="clippath-3">
+      <polygon class="cls-6" points="631.57 133.07 347.57 133.07 205.56 428.15 347.57 723.23 631.57 723.23 773.57 428.15 631.57 133.07"/>
+    </clipPath>
+  </defs>
+  <g id="_圖層_5" data-name="圖層 5">
+    <g>
+      <g class="cls-5">
+        <rect class="cls-6" x="189.56" y="106.76" width="600" height="650"/>
+        <g class="cls-7">
+          <polygon class="cls-4" points="588.85 221.57 390.28 221.57 290.99 427.9 390.28 634.22 588.85 634.22 688.14 427.9 588.85 221.57"/>
+          <polygon class="cls-1" points="390.28 221.57 342.1 121.46 194.63 427.9 290.99 427.9 390.28 221.57"/>
+          <polygon class="cls-3" points="590.32 221.57 638.5 121.46 785.97 427.9 689.61 427.9 590.32 221.57"/>
+          <polygon class="cls-1" points="588.85 634.22 637.03 734.34 784.5 427.9 688.14 427.9 588.85 634.22"/>
+          <polygon class="cls-2" points="390.28 634.22 342.1 734.34 637.03 734.34 588.85 634.22 390.28 634.22"/>
+          <polygon class="cls-3" points="390.28 634.22 342.1 734.34 194.63 427.9 290.99 427.9 390.28 634.22"/>
+          <polygon class="cls-2" points="390.28 221.57 342.1 121.46 637.03 121.46 588.85 221.57 390.28 221.57"/>
+        </g>
+      </g>
+      <rect class="cls-6" width="979.13" height="863.6"/>
+    </g>
+  </g>
+  <g id="_圖層_4" data-name="圖層 4">
+    <g>
+      <g class="cls-9">
+        <rect class="cls-6" x="189.57" y="106.76" width="600" height="650"/>
+        <g class="cls-8">
+          <polygon class="cls-4" points="588.85 221.57 390.28 221.57 290.99 427.9 390.28 634.22 588.85 634.22 688.14 427.9 588.85 221.57"/>
+          <polygon class="cls-1" points="390.28 221.57 342.1 121.46 194.63 427.9 290.99 427.9 390.28 221.57"/>
+          <polygon class="cls-3" points="590.32 221.57 638.5 121.46 785.97 427.9 689.61 427.9 590.32 221.57"/>
+          <polygon class="cls-1" points="588.85 634.22 637.03 734.34 784.5 427.9 688.14 427.9 588.85 634.22"/>
+          <polygon class="cls-2" points="390.28 634.22 342.1 734.34 637.03 734.34 588.85 634.22 390.28 634.22"/>
+          <polygon class="cls-3" points="390.28 634.22 342.1 734.34 194.63 427.9 290.99 427.9 390.28 634.22"/>
+          <polygon class="cls-2" points="390.28 221.57 342.1 121.46 637.03 121.46 588.85 221.57 390.28 221.57"/>
+        </g>
+      </g>
+      <rect class="cls-6" width="979.13" height="863.6"/>
+    </g>
+  </g>
+</svg>
