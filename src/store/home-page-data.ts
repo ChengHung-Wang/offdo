@@ -1,5 +1,5 @@
 import { defineStore } from "pinia";
-import { Plans } from "@/interface/Plan";
+import { Plan } from "@/interface/Plan";
 
 export const useHomePageData = defineStore('homePageData', {
     state: () => {
@@ -152,7 +152,7 @@ export const useHomePageData = defineStore('homePageData', {
                         "他們的熱情。"
                 }
             ],
-            plans: <Plans>[
+            plans: <Plan[]>[
                 {
                     title: "霹哩喀霹哩拉拉 酷酷告別式",
                     price: "NT 80,000起",
